@@ -14,6 +14,22 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!245 &-8518120738044103386
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Paused
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: cb1f0db92c5528f4c9daba551e9c6679
+  m_FloatValues:
+    4641437208018404da6358223029e947: 1000
+    0d58118403cffd1489e4ec9a9d0202bc: 1000
+    c1939635897650540bc6e66f27002f4a: 2000
+    8b8f839816203c24a912977b3adc81d9: 30
+    f0f2d63cf03ad2a49b771e47193f27f7: 1000
+  m_TransitionOverrides: {}
 --- !u!243 &-7811574132926312276
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -33,6 +49,24 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-5664493618418720998
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 614603f4b6029d24fb97622b1ea55505
+  m_EffectName: Lowpass
+  m_MixLevel: eb9fa0fe0776a9648bf0cb2a237b54b7
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: c1939635897650540bc6e66f27002f4a
+  - m_ParameterName: Resonance
+    m_GUID: fca172e7241850044bc38370e6255c5f
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-3959370771819816431
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -120,6 +154,7 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -8518120738044103386}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -198,12 +233,14 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: Normal
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ec645ab8d3b6d8c40bfc6c577c836726
   m_FloatValues:
     4641437208018404da6358223029e947: 1000
     0d58118403cffd1489e4ec9a9d0202bc: 1000
+    c1939635897650540bc6e66f27002f4a: 5000
+    fca172e7241850044bc38370e6255c5f: 1
     8b8f839816203c24a912977b3adc81d9: 30
     f0f2d63cf03ad2a49b771e47193f27f7: 1000
   m_TransitionOverrides: {}
@@ -303,6 +340,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -983612598421299757}
+  - {fileID: -5664493618418720998}
   m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0

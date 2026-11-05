@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         {
             paused = true;
             Time.timeScale = 0f;
+            SoundManager.instance.SwapSnapShot(paused);
             onPause?.Invoke();
         }
     }
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         paused = false;
         Time.timeScale = 1f;
+        SoundManager.instance.SwapSnapShot(paused);
         onResume?.Invoke();
     }
 

@@ -21,12 +21,11 @@ public class HealPickUp : Interactable
 
         pickupProg += Time.deltaTime / 1f;
 
-        transform.position = Vector3.Lerp(transform.position, transform.position, pickupProg);
+        transform.position = Vector3.Lerp(transform.position, player.position, pickupProg);
     }
 
     public override void Interact(Player player)
     {
-        this.player = player.transform;
         base.Interact(player);
     }
 }

@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-8350906819534302969
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FootStep1 (5)_{-8350906819534302969}
+  m_AudioClip: {fileID: 8300000, guid: dc00373f029148f4ca30e7674213dc8c, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-3489069351046478279
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FootStep1 (4)_{-3489069351046478279}
+  m_AudioClip: {fileID: 8300000, guid: 38c899ca47d0fbc44a54140dbb69f574, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-3005359592316743214
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FootStep1 (1)_{-3005359592316743214}
+  m_AudioClip: {fileID: 8300000, guid: 81b41ee1ed31c304ab3c16d2d32a8096, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2884409231278062696
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FootStep1 (6)_{-2884409231278062696}
+  m_AudioClip: {fileID: 8300000, guid: 5ff0fcafbc18f7f469d9a273b8bd2cc7, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4625875670142270456
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FootStep1 (2)_{4625875670142270456}
+  m_AudioClip: {fileID: 8300000, guid: e8d58f00c87054040af07ff0a117919b, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FootSteps
+  m_Volume: -5
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -5, y: 5}
+  m_PitchRandomizationRange: {x: -10, y: 10}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -3005359592316743214}
+  - {fileID: 4625875670142270456}
+  - {fileID: 7047608503036097337}
+  - {fileID: -3489069351046478279}
+  - {fileID: -8350906819534302969}
+  - {fileID: -2884409231278062696}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7047608503036097337
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FootStep1 (3)_{7047608503036097337}
+  m_AudioClip: {fileID: 8300000, guid: 58be2d25666f0d646ab713d8059eb737, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

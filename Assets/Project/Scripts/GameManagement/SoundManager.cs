@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     public AudioMixer mixer;
+    public AudioMixerSnapshot[] snapshots;
 
     [Range(0, 1)]
     public float masterVolume;
@@ -23,12 +24,38 @@ public class SoundManager : MonoBehaviour
     float bgm1Lerp = 1;
     float bgm2Lerp = 0;
     float currentBGMLength;
+    float currentBGMTime;
+    float crossFadeTime = 1f;
     bool lerpingBGMs;
 
     AudioSource BGM1;
     AudioSource BGM2;
 
+    public static SoundManager instance;
+
     private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+            return;
+        }
+    }
+
+    public void SwapSnapShot(bool paused)
+    {
+        float[] weights = paused
+        ? new float[] { 0f, 1f }
+        : new float[] { 1f, 0f };
+
+        mixer.TransitionToSnapshots(snapshots, weights, 0f);
+    }
+
+    private void Start()
     {
         GameObject bg1 = new();
         AudioSource ao1 = bg1.AddComponent<AudioSource>();
@@ -45,6 +72,8 @@ public class SoundManager : MonoBehaviour
         ao1.clip = BGMPlayList.instance.GetSongAtIndex(0);
         ao1.Play(); 
         ao2.Play();
+        ao1.loop = true;
+        ao2.loop = true;
     }
 
     public void SwapBGM(AudioClip newClip)
@@ -55,12 +84,15 @@ public class SoundManager : MonoBehaviour
         onBGMChannel1 = !onBGMChannel1;
 
         if (onBGMChannel1)
+        {
             BGM1.clip = newClip;
+            BGM1.Play();
+        }
         else
+        {
             BGM2.clip = newClip;
-
-        BGM1.Play();
-        BGM2.Play();
+            BGM2.Play();
+        }
     }
 
     private void Update()
@@ -68,24 +100,29 @@ public class SoundManager : MonoBehaviour
         if (lerpingBGMs)
             LerpBGM();
 
+        currentBGMTime += Time.unscaledDeltaTime;
+        if (currentBGMTime > currentBGMLength - crossFadeTime)
+        {
+            SwapBGM(BGMPlayList.instance.GetNextSong());
+            currentBGMTime = 0;
+        }
+
         UpdateVolumes();
     }
 
     void LerpBGM()
     {
-        float lerpTime = .5f;
-
         if (onBGMChannel1)
         {
-            bgm1Lerp = Mathf.Clamp(bgm1Lerp += Time.deltaTime / lerpTime, 0, 1);
-            bgm2Lerp = Mathf.Clamp(bgm2Lerp -= Time.deltaTime / lerpTime, 0, 1);
+            bgm1Lerp = Mathf.Clamp(bgm1Lerp += Time.unscaledDeltaTime / crossFadeTime, 0, 1);
+            bgm2Lerp = Mathf.Clamp(bgm2Lerp -= Time.unscaledDeltaTime / crossFadeTime, 0, 1);
 
             if (bgm1Lerp == 1 && bgm2Lerp == 0) lerpingBGMs = false;
         }
         else
         {
-            bgm2Lerp = Mathf.Clamp(bgm2Lerp += Time.deltaTime / lerpTime, 0, 1);
-            bgm1Lerp = Mathf.Clamp(bgm1Lerp -= Time.deltaTime / lerpTime, 0, 1);
+            bgm2Lerp = Mathf.Clamp(bgm2Lerp += Time.unscaledDeltaTime / crossFadeTime, 0, 1);
+            bgm1Lerp = Mathf.Clamp(bgm1Lerp -= Time.unscaledDeltaTime / crossFadeTime, 0, 1);
 
             if (bgm1Lerp == 0 && bgm2Lerp == 1) lerpingBGMs = false;
         }
