@@ -4,25 +4,16 @@ public class Player : Entity
 {
 
     public static bool dead = false;
-    public float pickUpRange = 10f;
 
     private void Update()
     {
-        foreach (PickUpAble pickUp in PickUpAble.pickUpables)
+        foreach (Interactable interactable in Interactable.interactables)
         {
-            float dist = Vector3.Distance(pickUp.transform.position, transform.position);
+            float dist = Vector3.Distance(interactable.transform.position, transform.position);
 
-            if (dist <= pickUpRange)
+            if (dist <= interactable.interactRange)
             {
-                if (dist <= 1f)
-                {
-                    pickUp.OnPickUp(this);
-                    continue;
-                }
-
-                pickUp.pickupProg += Time.deltaTime / 1f;
-
-                pickUp.transform.position = Vector3.Lerp(pickUp.transform.position, transform.position, pickUp.pickupProg);
+                interactable.Interact(this);
             }
         }
     }
@@ -38,11 +29,5 @@ public class Player : Entity
 
         //Dont despawn it!
         //base.Death();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.purple;
-        Gizmos.DrawWireSphere(transform.position, pickUpRange);
     }
 }
