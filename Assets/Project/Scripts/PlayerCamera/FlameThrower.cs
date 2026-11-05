@@ -26,6 +26,11 @@ public class FlameThrower : MonoBehaviour
     public LayerMask rayMask;
     [SerializeField] float maxPitch = 45f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip flameClip;
+    public AudioClip flameEndClip;
+
     public static event Action<bool> onAim;
     public static event Action<bool> onShoot;
 
@@ -49,11 +54,25 @@ public class FlameThrower : MonoBehaviour
             flameParticles.Play();
             Shoot();
             onShoot(true);
+
+            if (audioSource.clip != flameClip)
+            {
+                audioSource.clip = flameClip;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
         }
         else
         {
             flameParticles.Stop();
             onShoot(false);
+
+            if (audioSource.clip != flameEndClip)
+            {
+                audioSource.clip = flameEndClip;
+                audioSource.loop = false;
+                audioSource.Play();
+            }
         }
 
         if (aim.ReadValue<float>() > .5f)
