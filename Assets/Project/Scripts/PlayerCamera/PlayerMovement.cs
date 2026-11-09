@@ -1,8 +1,5 @@
-using System.Runtime.ExceptionServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
