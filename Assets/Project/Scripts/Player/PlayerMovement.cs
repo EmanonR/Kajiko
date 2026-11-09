@@ -80,14 +80,14 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
 
-    void OnAimEvent(bool aimR)
+    void OnAimEvent(bool value)
     {
-        aiming = aimR;
+        aiming = value;
     }
 
-    void OnShootEvent(bool aimR)
+    void OnShootEvent(bool value)
     {
-        shooting = aimR;
+        shooting = value;
     }
 
     void HandleState(bool moving)
