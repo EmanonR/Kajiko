@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
 
         paused = false;
-        onResume();
+        onResume?.Invoke();
 
         ScoreManager.score = 0;
 

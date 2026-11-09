@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,8 +16,9 @@ public class EnemyTree : Enemy
 
     public static List<EnemyTree> enemiesInScene = new();
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         player = GameManager.singleton.player.transform;
         agent = GetComponent<NavMeshAgent>();
         enemiesInScene.Add(this);
@@ -33,12 +33,7 @@ public class EnemyTree : Enemy
     {
         float t = animator.GetFloat(name);
 
-        float mod = Time.deltaTime * time;
-
-        if (t > value) mod *= -1;
-
-        t = Mathf.Lerp(mod, t, value);
-        animator.SetFloat(name, t);
+        animator.SetFloat(name, Mathf.MoveTowards(t, value, Time.deltaTime * time));
     }
 
     public void AnimationFloat(string name, float value)

@@ -144,6 +144,7 @@ public class SoundManager : MonoBehaviour
 
     float VolumeFix(float inp)
     {
+        inp = Mathf.Max(inp, 0.0001f);
         return Mathf.Lerp(-80, 0, Mathf.Log10(inp) + 1);
     }
 }

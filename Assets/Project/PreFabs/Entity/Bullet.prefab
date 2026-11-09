@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b254f0b2e4e7b54294ae4a0a32f3361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 15000
+  speed: 150
   destroyTime: 2
   damage: 0
   rb: {fileID: 2316692061268814755}

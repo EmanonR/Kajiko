@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class ScoreManager
 {
     public static float score = 0;

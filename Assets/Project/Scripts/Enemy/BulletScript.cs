@@ -14,7 +14,7 @@ public class BulletScript : MonoBehaviour
 
     private void Start()
     {
-        rb.linearVelocity = speed * Time.deltaTime * rb.transform.forward;
+        rb.linearVelocity = speed * rb.transform.forward;
     }
 
     private void Update()

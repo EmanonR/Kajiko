@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
     [HideInInspector]
     public float currentHP = 50;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         currentHP = maxHP;
     }

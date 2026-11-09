@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,7 +51,7 @@ public class FlameThrower : MonoBehaviour
 
             flameParticles.Play();
             Shoot();
-            onShoot(true);
+            onShoot?.Invoke(true);
 
             if (audioSource.clip != flameClip)
             {
@@ -65,7 +63,7 @@ public class FlameThrower : MonoBehaviour
         else
         {
             flameParticles.Stop();
-            onShoot(false);
+            onShoot?.Invoke(false);
 
             if (audioSource.clip != flameEndClip)
             {
@@ -77,11 +75,11 @@ public class FlameThrower : MonoBehaviour
 
         if (aim.ReadValue<float>() > .5f)
         {
-            onAim(true);
+            onAim?.Invoke(true);
         }
         else
         {
-            onAim(false);
+            onAim?.Invoke(false);
         }
 
         if (reloadButton.ReadValue<float>() > .5f)

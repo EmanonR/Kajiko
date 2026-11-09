@@ -5,6 +5,12 @@ public class Player : Entity
 
     public static bool dead = false;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        dead = false;
+    }
+
     private void Update()
     {
         foreach (Interactable interactable in Interactable.interactables)
@@ -16,11 +22,6 @@ public class Player : Entity
                 interactable.Interact(this);
             }
         }
-    }
-
-    private void Awake()
-    {
-        dead = false;
     }
 
     public override void Death()

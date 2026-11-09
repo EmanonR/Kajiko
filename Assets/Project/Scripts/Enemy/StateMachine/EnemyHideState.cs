@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class EnemyHideState : State
 {
     public string defaultHideName = "Hide";
