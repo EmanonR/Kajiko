@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CivilianAnimator : MonoBehaviour
+public class NPCAnimator : MonoBehaviour
 {
     [SerializeField] Animator animator;
     public string currentAnimName;

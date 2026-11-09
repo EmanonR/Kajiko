@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class StateManager : MonoBehaviour
+public class StateMachine : MonoBehaviour
 {
-
     public State currentState;
 
     void Update()

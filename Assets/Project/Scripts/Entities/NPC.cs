@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : Entity
+public class NPC : Entity
 {
     public Transform player;
     public float visionRange = 15;

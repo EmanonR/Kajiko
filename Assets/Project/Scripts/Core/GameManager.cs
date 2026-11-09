@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public float timeSinceAlert = 0;
     public GameObject player;
 
-    public static GameManager singleton;
+    public static GameManager Instance;
 
     public static event Action onPause;
     public static event Action onResume;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (singleton != null)
+        if (Instance != null)
         {
             Destroy(this);
             return;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
         ScoreManager.score = 0;
 
-        singleton = this;
+        Instance = this;
     }
     private void Update()
     {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         {
             paused = true;
             Time.timeScale = 0f;
-            SoundManager.instance.SwapSnapShot(paused);
+            SoundManager.Instance.SwapSnapShot(paused);
             onPause?.Invoke();
         }
     }
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         paused = false;
         Time.timeScale = 1f;
-        SoundManager.instance.SwapSnapShot(paused);
+        SoundManager.Instance.SwapSnapShot(paused);
         onResume?.Invoke();
     }
 

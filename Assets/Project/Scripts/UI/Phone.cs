@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneNavigator : MonoBehaviour
+public class Phone : MonoBehaviour
 {
     [SerializeField] Animator phoneAnimator;
 
@@ -14,7 +14,7 @@ public class PhoneNavigator : MonoBehaviour
     public Transform viewPort;
     public GameObject SongListPrefab;
 
-    List<SongItemController> songsList = new();
+    List<SongListItem> songsList = new();
 
     int currentSelectedSong = 0;
     bool phonePressedThisFrame;
@@ -33,11 +33,11 @@ public class PhoneNavigator : MonoBehaviour
 
     void CreateList()
     {
-        List<AudioClip> clips = BGMPlayList.instance.GetPlayList();
+        List<AudioClip> clips = MusicPlaylist.Instance.GetPlayList();
 
         foreach (AudioClip clip in clips)
         {
-            SongItemController con = Instantiate(SongListPrefab, content).GetComponent<SongItemController>();
+            SongListItem con = Instantiate(SongListPrefab, content).GetComponent<SongListItem>();
 
             con.UpdateSong(clip.name);
             songsList.Add(con);
@@ -71,7 +71,7 @@ public class PhoneNavigator : MonoBehaviour
         {
             currentSelectedSong++;
 
-            if (currentSelectedSong >= BGMPlayList.instance.GetPlayList().Count)
+            if (currentSelectedSong >= MusicPlaylist.Instance.GetPlayList().Count)
                 currentSelectedSong = 0;
         }
         else if (phoneInp.y > 0)
@@ -80,7 +80,7 @@ public class PhoneNavigator : MonoBehaviour
 
 
             if (currentSelectedSong < 0)
-                currentSelectedSong = BGMPlayList.instance.GetPlayList().Count - 1;
+                currentSelectedSong = MusicPlaylist.Instance.GetPlayList().Count - 1;
         }
 
         UpdateSelected();
@@ -90,7 +90,7 @@ public class PhoneNavigator : MonoBehaviour
 
     void UpdatePlaying()
     {
-        int ind = BGMPlayList.instance.currentSongIndex;
+        int ind = MusicPlaylist.Instance.currentSongIndex;
 
         songsList[ind].UpdatePlaying(true);
     }
@@ -114,7 +114,7 @@ public class PhoneNavigator : MonoBehaviour
 
         songsList[currentSelectedSong].UpdatePlaying(true);
 
-        SoundManager.instance.SwapBGM(BGMPlayList.instance.GetSongAtIndex(currentSelectedSong));
+        SoundManager.Instance.SwapBGM(MusicPlaylist.Instance.GetSongAtIndex(currentSelectedSong));
     }
 
     void PhoneFlip()

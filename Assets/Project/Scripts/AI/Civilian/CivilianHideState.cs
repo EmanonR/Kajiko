@@ -1,4 +1,4 @@
-public class EnemyHideState : State
+public class CivilianHideState : State
 {
     public string defaultHideName = "Hide";
 

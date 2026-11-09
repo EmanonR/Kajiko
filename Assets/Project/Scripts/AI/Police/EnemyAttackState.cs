@@ -6,10 +6,10 @@ public class EnemyAttackState : State
 
     public override State RunCurrentState()
     {
-        Vector3 playerPos = GetComponentInParent<Enemy>().player.position;
+        Vector3 playerPos = GetComponentInParent<NPC>().player.position;
         float dist = Vector3.Distance(transform.position, playerPos);
 
-        if (dist > GetComponentInParent<Enemy>().attackRange)
+        if (dist > GetComponentInParent<NPC>().attackRange)
         {
             return chaseState;
         }

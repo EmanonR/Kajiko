@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CanvasManager : MonoBehaviour
+public class HUD : MonoBehaviour
 {
     public Player player;
 
@@ -13,17 +13,17 @@ public class CanvasManager : MonoBehaviour
     public TMP_Text FuelGaugeText;
     public TMP_Text hpText;
 
-    public static CanvasManager singleton;
+    public static HUD Instance;
 
     private void Awake()
     {
-        if (singleton != null)
+        if (Instance != null)
         {
             Destroy(this);
             return;
         }
 
-        singleton = this;
+        Instance = this;
 
         GameManager.onPause += PauseMenu;
         PausePanel.SetActive(false);
@@ -38,7 +38,7 @@ public class CanvasManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.singleton.GAMEOVER)
+        if (GameManager.Instance.GAMEOVER)
         {
             PausePanel.SetActive(false);
             UIPanel.SetActive(false);
@@ -72,14 +72,14 @@ public class CanvasManager : MonoBehaviour
 
     public void ContinueGame()
     {
-        GameManager.singleton.InvokeResume();
+        GameManager.Instance.InvokeResume();
         PausePanel.SetActive(false);
         UIPanel.SetActive(true);
     }
 
     public void LoadScene(int i)
     {
-        GameManager.singleton.InvokeResume();
+        GameManager.Instance.InvokeResume();
         SceneManager.LoadSceneAsync(i);
         Cursor.lockState = CursorLockMode.None;
     }

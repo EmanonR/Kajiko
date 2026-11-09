@@ -13,13 +13,13 @@ public class SoundManagerEditor : Editor
             if (GUILayout.Button("Prev Song"))
             {
                 SoundManager manager = (SoundManager)target;
-                manager.SwapBGM(BGMPlayList.instance.GetPrevSong());
+                manager.SwapBGM(MusicPlaylist.Instance.GetPrevSong());
             }
 
             if (GUILayout.Button("Next Song"))
             {
                 SoundManager manager = (SoundManager)target;
-                manager.SwapBGM(BGMPlayList.instance.GetNextSong());
+                manager.SwapBGM(MusicPlaylist.Instance.GetNextSong());
             }
         }
     }

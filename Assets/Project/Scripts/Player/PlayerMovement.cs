@@ -35,8 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.singleton.GAMEOVER) return;
-        if (GameManager.singleton.paused) return;
+        if (GameManager.Instance.GAMEOVER) return;
+        if (GameManager.Instance.paused) return;
 
         currentSpeed = KeyBinds.Instance.sprintInput.IsPressed() ? PlayerStats.runSpeed : walkSpeed;
 
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (GameManager.singleton.GAMEOVER) return;
+        if (GameManager.Instance.GAMEOVER) return;
         Vector2 moveInp = KeyBinds.Instance.movementInput.ReadValue<Vector2>();
 
         if (moveInp != Vector2.zero || aiming || shooting)

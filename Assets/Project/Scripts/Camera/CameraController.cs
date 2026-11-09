@@ -36,10 +36,10 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (GameManager.singleton != null)
+        if (GameManager.Instance != null)
         {
-            if (GameManager.singleton.GAMEOVER) return;
-            if (GameManager.singleton.paused) return;
+            if (GameManager.Instance.GAMEOVER) return;
+            if (GameManager.Instance.paused) return;
         }
 
         if (followObject == null) return;

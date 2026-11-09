@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyIdleState : State
+public class CivilianIdleState : State
 {
     public State onSightState = null;
     public string defaultIdleName = "Idle";
@@ -51,14 +51,14 @@ public class EnemyIdleState : State
 
        
 
-        Vector3 playerPos = GetComponentInParent<Enemy>().player.position;
+        Vector3 playerPos = GetComponentInParent<NPC>().player.position;
         float dist = Vector3.Distance(transform.position, playerPos);
 
-        if (dist <= GetComponentInParent<Enemy>().visionRange)
+        if (dist <= GetComponentInParent<NPC>().visionRange)
         {
             movementState = MovementState.Flee;
             agent.speed = runSpeed;
-            GameManager.singleton.policeAlerted = true;
+            GameManager.Instance.policeAlerted = true;
             return onSightState;
         }
         else

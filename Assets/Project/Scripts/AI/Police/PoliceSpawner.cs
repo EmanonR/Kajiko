@@ -13,15 +13,15 @@ public class PoliceSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.singleton.GAMEOVER) return;
-        if (GameManager.singleton.paused) return;
+        if (GameManager.Instance.GAMEOVER) return;
+        if (GameManager.Instance.paused) return;
 
-        int adjustedSpawnCount = defaultMaxSpawnCount + (int)(GameManager.singleton.timeSinceAlert / 30);
+        int adjustedSpawnCount = defaultMaxSpawnCount + (int)(GameManager.Instance.timeSinceAlert / 30);
 
         if (EnemyTree.enemiesInScene.Count >= adjustedSpawnCount) return;
 
 
-        if (GameManager.singleton.timeSinceAlert >= 10f)
+        if (GameManager.Instance.timeSinceAlert >= 10f)
         {
             Transform spawnPoint = GetSpawnPoint();
 
@@ -33,13 +33,13 @@ public class PoliceSpawner : MonoBehaviour
             BehaviorGraphAgent agent = police.GetComponent<BehaviorGraphAgent>();
             agent.enabled = true;
             agent.Init();
-            agent.SetVariableValue("Player", GameManager.singleton.player.transform);
+            agent.SetVariableValue("Player", GameManager.Instance.player.transform);
         }
     }
 
     Transform GetSpawnPoint()
     {
-        Vector3 playerPos = GameManager.singleton.player.transform.position;
+        Vector3 playerPos = GameManager.Instance.player.transform.position;
         List<Transform> valid = new();
 
         foreach (Transform point in spawnPoints)
@@ -59,9 +59,9 @@ public class PoliceSpawner : MonoBehaviour
 
         foreach (var spawnPoint in spawnPoints)
         {
-            if (GameManager.singleton != null)
+            if (GameManager.Instance != null)
             {
-                float dist = Vector3.Distance(GameManager.singleton.player.transform.position, spawnPoint.position);
+                float dist = Vector3.Distance(GameManager.Instance.player.transform.position, spawnPoint.position);
 
                 if (dist <= spawnRangeLimiter)
                     Gizmos.color = Color.red;

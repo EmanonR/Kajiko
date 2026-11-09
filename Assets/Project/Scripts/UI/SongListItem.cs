@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class SongItemController : MonoBehaviour
+public class SongListItem : MonoBehaviour
 {
     public TMP_Text songTitle;
     public GameObject playingIcon;

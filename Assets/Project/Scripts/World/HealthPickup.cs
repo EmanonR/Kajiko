@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealPickUp : Interactable
+public class HealthPickup : Interactable
 {
     public float pickupProg = 0;
     int healAmount = 10;

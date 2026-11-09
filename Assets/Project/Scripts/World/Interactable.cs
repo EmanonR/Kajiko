@@ -24,6 +24,8 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact(Player player)
     {
+        if (interactedWith) return;
+
         interactedWith = true;
         this.player = player.transform;
         OnInteract?.Invoke();

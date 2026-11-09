@@ -24,7 +24,7 @@ public class Entity : MonoBehaviour
             Death();
     }
 
-    public void Heal(int incoming)
+    public void Heal(float incoming)
     {
         currentHP = Mathf.Clamp(currentHP + incoming, 0, maxHP);
     }

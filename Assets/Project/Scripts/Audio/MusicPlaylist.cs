@@ -1,18 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGMPlayList : MonoBehaviour
+public class MusicPlaylist : MonoBehaviour
 {
     public List<AudioClip> PlayList = new();
 
-    public static BGMPlayList instance;
-
     public int currentSongIndex;
+
+    public static MusicPlaylist Instance;
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
         {
             Destroy(this);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MouseHandler : MonoBehaviour
+public class CursorLock : MonoBehaviour
 {
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class MouseHandler : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.singleton.GAMEOVER)
+        if (GameManager.Instance.GAMEOVER)
             Cursor.lockState = CursorLockMode.None;
     }
 

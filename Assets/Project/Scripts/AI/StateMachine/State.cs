@@ -6,6 +6,6 @@ public abstract class State : MonoBehaviour
 
     public void PlayAnimation(string animName)
     {
-        GetComponentInParent<CivilianAnimator>().PlayAnimation(animName);
+        GetComponentInParent<NPCAnimator>().PlayAnimation(animName);
     }
 }

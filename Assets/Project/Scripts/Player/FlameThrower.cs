@@ -28,58 +28,96 @@ public class FlameThrower : MonoBehaviour
     public static event Action<bool> onAim;
     public static event Action<bool> onShoot;
 
+    bool shooting;
+    bool aiming;
+
+    private void Awake()
+    {
+        shooting = false;
+        aiming = false;
+        flameParticles.Stop();
+    }
+
     void Start()
     {
         currentAmmo = maxAmmo;
-        audioSource.clip = flameEndClip;
+        audioSource.clip = flameEndClip; 
     }
 
     private void Update()
     {
-        if (GameManager.singleton.GAMEOVER) return;
-        if (GameManager.singleton.paused) return;
+        if (GameManager.Instance.GAMEOVER) return;
+        if (GameManager.Instance.paused) return;
 
-        if (currentAmmo > 0 && KeyBinds.Instance.shootInput.ReadValue<float>() > .5f)
+        HandleShoot();
+        HandleAim();
+        HandleReload();
+    }
+
+    void HandleShoot()
+    {
+        if (currentAmmo > 0 && KeyBinds.Instance.shootInput.IsPressed())
         {
-            if (currentAmmo <= 0) return;
+            if (!shooting)
+            {
+                flameParticles.Play();
+                onShoot?.Invoke(true);
 
-            flameParticles.Play();
+                if (audioSource.clip != flameClip)
+                {
+                    audioSource.clip = flameClip;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
+            }
+            
             Shoot();
-            onShoot?.Invoke(true);
-
-            if (audioSource.clip != flameClip)
-            {
-                audioSource.clip = flameClip;
-                audioSource.loop = true;
-                audioSource.Play();
-            }
+            shooting = true;
         }
         else
         {
-            flameParticles.Stop();
-            onShoot?.Invoke(false);
-
-            if (audioSource.clip != flameEndClip)
+            if (shooting)
             {
-                audioSource.clip = flameEndClip;
-                audioSource.loop = false;
-                audioSource.Play();
-            }
-        }
+                flameParticles.Stop();
+                onShoot?.Invoke(false);
 
-        if (KeyBinds.Instance.aimInput.ReadValue<float>() > .5f)
+                if (audioSource.clip != flameEndClip)
+                {
+                    audioSource.clip = flameEndClip;
+                    audioSource.loop = false;
+                    audioSource.Play();
+                }
+            }
+
+            shooting = false;
+        }
+    }
+
+    void HandleAim()
+    {
+        if (KeyBinds.Instance.aimInput.IsPressed())
         {
-            onAim?.Invoke(true);
+            if (!aiming)
+                onAim?.Invoke(true);
+
+            aiming = true;
         }
         else
         {
-            onAim?.Invoke(false);
-        }
+            if (aiming)
+                onAim?.Invoke(false);
 
-        if (KeyBinds.Instance.reloadInput.ReadValue<float>() > .5f)
+            aiming = false;
+        }
+    }
+
+    void HandleReload()
+    {
+
+        if (KeyBinds.Instance.reloadInput.IsPressed())
         {
             currentAmmo = maxAmmo;
-            CanvasManager.singleton.UpdateAmmoUI(currentAmmo, maxAmmo);
+            HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
         }
     }
 
@@ -92,7 +130,7 @@ public class FlameThrower : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.collider.TryGetComponent(out Enemy enemy))
+            if (hit.collider.TryGetComponent(out NPC enemy))
             {
                 enemy.TakeDamage(DPS * Time.deltaTime);
                 ScoreManager.AddScore(DPS * Time.deltaTime / 2);
@@ -102,7 +140,7 @@ public class FlameThrower : MonoBehaviour
         }
 
         currentAmmo -= FPS * Time.deltaTime;
-        CanvasManager.singleton.UpdateAmmoUI(currentAmmo, maxAmmo);
+        HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
     }
 
     Vector3 GetAimDirection()

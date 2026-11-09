@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-
     public float speed = 15f;
     public float destroyTime = 5f;
     public float damage;
@@ -48,7 +47,7 @@ public class BulletScript : MonoBehaviour
     void HandleHit(Collider other)
     {
         //Do actual hit logic here
-        if (other.GetComponentInParent<Enemy>() != null) return;
+        if (other.GetComponentInParent<NPC>() != null) return;
 
         if (other.TryGetComponent(out Player player))
             player.TakeDamage(damage);

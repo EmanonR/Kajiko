@@ -39,8 +39,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.singleton.GAMEOVER) return;
-        if (GameManager.singleton.paused) return;
+        if (GameManager.Instance.GAMEOVER) return;
+        if (GameManager.Instance.paused) return;
 
         emitter.SetPositionAndRotation(
             weaponBone.TransformPoint(emitterLocalPos),

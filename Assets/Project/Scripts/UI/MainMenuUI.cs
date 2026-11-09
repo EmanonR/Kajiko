@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuCanvasManager : MonoBehaviour
+public class MainMenuUI : MonoBehaviour
 {
     public GameObject mainPanel;
 

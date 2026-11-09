@@ -23,12 +23,12 @@ public class EnemyChaseState : State
 
         timer = 0;
 
-        Vector3 playerPos = GetComponentInParent<Enemy>().player.position;
+        Vector3 playerPos = GetComponentInParent<NPC>().player.position;
         float dist = Vector3.Distance(transform.position, playerPos);
 
         Agent.destination = playerPos;
 
-        if (dist <= GetComponentInParent<Enemy>().attackRange)
+        if (dist <= GetComponentInParent<NPC>().attackRange)
         {
             return attackState;
         }

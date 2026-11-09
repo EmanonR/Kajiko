@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyFleeState : State
+public class CivilianFleeState : State
 {
     public State hideState;
     public string defaultRunName = "Run";
@@ -31,7 +31,7 @@ public class EnemyFleeState : State
         
         float dist = Vector3.Distance(transform.position, targetHidingSpot.transform.position);
 
-        if (dist <= GetComponentInParent<Enemy>().interactRange)
+        if (dist <= GetComponentInParent<NPC>().interactRange)
             return hideState;
         else
             return this;

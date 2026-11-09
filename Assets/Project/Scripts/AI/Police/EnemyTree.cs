@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyTree : Enemy
+public class EnemyTree : NPC
 {
     public float turnSpeed = 1f;
     public float bulletDamage = 5f;
@@ -19,7 +19,7 @@ public class EnemyTree : Enemy
     protected override void Awake()
     {
         base.Awake();
-        player = GameManager.singleton.player.transform;
+        player = GameManager.Instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         enemiesInScene.Add(this);
     }
@@ -93,7 +93,7 @@ public class EnemyTree : Enemy
         Transform nBullet = Instantiate(bullet, muzzle.position, Quaternion.identity).transform;
 
         nBullet.LookAt(nBullet.position + muzzle.forward);
-        nBullet.GetComponent<BulletScript>().damage = bulletDamage;
+        nBullet.GetComponent<Bullet>().damage = bulletDamage;
     }
 
     public float GetDistance(Transform target)
@@ -103,6 +103,6 @@ public class EnemyTree : Enemy
 
     public Transform GetPlayerFromGameManager()
     {
-        return GameManager.singleton.player.transform;
+        return GameManager.Instance.player.transform;
     }
 }

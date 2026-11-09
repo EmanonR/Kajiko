@@ -31,13 +31,13 @@ public class SoundManager : MonoBehaviour
     AudioSource BGM1;
     AudioSource BGM2;
 
-    public static SoundManager instance;
+    public static SoundManager Instance;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -69,7 +69,7 @@ public class SoundManager : MonoBehaviour
 
         BGM2 = ao2;
 
-        ao1.clip = BGMPlayList.instance.GetSongAtIndex(0);
+        ao1.clip = MusicPlaylist.Instance.GetSongAtIndex(0);
         currentBGMLength = ao1.clip.length;
         ao1.Play(); 
         ao2.Play();
@@ -105,7 +105,7 @@ public class SoundManager : MonoBehaviour
         currentBGMTime += Time.unscaledDeltaTime;
 
         if (currentBGMTime > currentBGMLength - crossFadeTime)
-            SwapBGM(BGMPlayList.instance.GetNextSong());
+            SwapBGM(MusicPlaylist.Instance.GetNextSong());
 
         UpdateVolumes();
     }

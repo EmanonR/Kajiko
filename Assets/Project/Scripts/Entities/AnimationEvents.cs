@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EntityAnimationEvents : MonoBehaviour
+public class AnimationEvents : MonoBehaviour
 {
     public AudioSource stepSource;
 
