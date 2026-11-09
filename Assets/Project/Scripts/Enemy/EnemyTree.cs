@@ -10,6 +10,7 @@ public class EnemyTree : Enemy
     public GameObject bullet;
     public Transform muzzle;
     public Animator animator;
+    public AudioSource bulletSource;
 
     float turnSmoothVel;
     NavMeshAgent agent;
@@ -93,6 +94,7 @@ public class EnemyTree : Enemy
 
     public void Shoot()
     {
+        bulletSource.Play();
         Transform nBullet = Instantiate(bullet, muzzle.position, Quaternion.identity).transform;
 
         nBullet.LookAt(nBullet.position + muzzle.forward);

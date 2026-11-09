@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFleeState
   hideState: {fileID: 850623822072508993}
+  defaultRunName: Run
 --- !u!1 &2629507323568248591
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +85,7 @@ Transform:
   - {fileID: 1821551808630784903}
   - {fileID: 1603851547733004262}
   - {fileID: 582413613622076516}
+  - {fileID: 2316749924640646456}
   - {fileID: 403931469264318433}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -225,6 +227,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyIdleState
   onSightState: {fileID: 1385493285177991247}
   defaultIdleName: Idle1
+  defaultRoamName: Walk
+  roamable: 1
+  walkSpeed: 4
+  runSpeed: 8
+  movementState: 0
 --- !u!1 &3352958114518344208
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +323,135 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackState
   chaseState: {fileID: 4737028858924451107}
+--- !u!1 &6255161040261417285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2316749924640646456}
+  - component: {fileID: 229299623850699978}
+  m_Layer: 7
+  m_Name: StepSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2316749924640646456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255161040261417285}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 381968339708038091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &229299623850699978
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255161040261417285}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -702261561043453170, guid: 2f013a497199cce43a4574627ca28580, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 6418180475301049370, guid: 15a7d04940720be4db05a18dcb7cc59c, type: 2}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6294395457769205338
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0def4b01c676418d8991014d4b540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHideState
+  defaultHideName: Hide
 --- !u!1001 &149099250756913162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,13 +572,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caf11020c0a8fc346927e0f1049e6aed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1909411526444757751}
   m_SourcePrefab: {fileID: 100100000, guid: caf11020c0a8fc346927e0f1049e6aed, type: 3}
 --- !u!4 &403931469264318433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: caf11020c0a8fc346927e0f1049e6aed, type: 3}
   m_PrefabInstance: {fileID: 149099250756913162}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1067596290078651739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: caf11020c0a8fc346927e0f1049e6aed, type: 3}
+  m_PrefabInstance: {fileID: 149099250756913162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1909411526444757751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067596290078651739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cff774bbd90d540acc61bc09d9fc68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityAnimationEvents
+  stepSource: {fileID: 229299623850699978}
 --- !u!95 &6015438369769928091 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: caf11020c0a8fc346927e0f1049e6aed, type: 3}
