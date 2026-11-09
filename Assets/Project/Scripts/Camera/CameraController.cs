@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [ExecuteAlways]
 public class CameraController : MonoBehaviour
@@ -15,8 +14,6 @@ public class CameraController : MonoBehaviour
 
     [Range(0f, 1f)]
     public float targetZoom = 0f;
-    public InputAction scrollInput;
-
 
     Vector3 targetOffsetPos;
     Vector3 nearPos;
@@ -29,8 +26,6 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        scrollInput.Enable();
-
         FlameThrower.onAim += AimOverride;
     }
 
@@ -48,8 +43,9 @@ public class CameraController : MonoBehaviour
         }
 
         if (followObject == null) return;
+        if (KeyBinds.Instance == null) return;
 
-        Vector2 mouseInput = InputSystem.actions["Look"].ReadValue<Vector2>();
+        Vector2 mouseInput = KeyBinds.Instance.mouseInput.ReadValue<Vector2>();
 
         //Rotate camera
         if (Application.isPlaying)
@@ -57,6 +53,7 @@ public class CameraController : MonoBehaviour
 
         //Update positions
         UpdatePositions();
+
 
         //Move to position
         transform.position = targetOffsetPos;
@@ -108,7 +105,7 @@ public class CameraController : MonoBehaviour
 
     void CameraZoom()
     {
-        targetZoom = Mathf.Clamp(targetZoom += scrollInput.ReadValue<Vector2>().y * zoomSpeed, 0, 1);
+        targetZoom = Mathf.Clamp(targetZoom += KeyBinds.Instance.scrollInput.ReadValue<float>() * zoomSpeed, 0, 1);
     }
 
     float ClampRotation(float rotation)

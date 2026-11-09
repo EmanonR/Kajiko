@@ -5937,7 +5937,6 @@ GameObject:
   - component: {fileID: 5358250901617541396}
   - component: {fileID: 2123243467824174816}
   - component: {fileID: 1659242075787796533}
-  - component: {fileID: 6688922773754949054}
   - component: {fileID: 7095284756107899031}
   m_Layer: 6
   m_Name: Player
@@ -6098,7 +6097,7 @@ MonoBehaviour:
   raySize: 2
   rayMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 129
   maxPitch: 45
   audioSource: {fileID: 6455678626583513249}
   flameClip: {fileID: 8300000, guid: 1061b34d244ee1749b75f0fdc409ef30, type: 3}
@@ -6124,36 +6123,6 @@ MonoBehaviour:
   smoothing: 50
   weaponBone: {fileID: 4341994754217069098}
   emitter: {fileID: 743068567458081722}
---- !u!114 &6688922773754949054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6944513678698247392}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484276843c319914ab48198a2d560c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
-  respawn:
-    m_Name: Respawn
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: eaebe041-3d3e-400e-994f-8fe6b75e9977
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: bab6a0e0-dbed-445e-aa8f-775303fe1d3c
-      m_Path: <Keyboard>/r
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Respawn
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
 --- !u!114 &7095284756107899031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6529,7 +6498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8075119552603958991}
   - component: {fileID: 4120938679683200695}
-  - component: {fileID: 5914359426453462379}
+  - component: {fileID: 1765474992941850330}
   m_Layer: 0
   m_Name: Kajiko
   m_TagString: Untagged
@@ -6583,7 +6552,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5914359426453462379
+--- !u!114 &1765474992941850330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6592,9 +6561,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7591488633027675087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f08b06099c376a45b743b23541af283, type: 3}
+  m_Script: {fileID: 11500000, guid: 26cff774bbd90d540acc61bc09d9fc68, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::EntityAnimationEvents
   stepSource: {fileID: 2910571787175118236}
 --- !u!1 &7601120722179714151
 GameObject:

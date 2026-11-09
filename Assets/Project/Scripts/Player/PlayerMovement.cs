@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
     public float walkSpeed = 8;
-    public bool canJump = false;
     public float jumpPower = 5, jumpTime = 1f;
     public float turnSmoothTime = .1f;
 
@@ -37,20 +35,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
         if (GameManager.singleton.GAMEOVER) return;
         if (GameManager.singleton.paused) return;
 
-        currentSpeed = InputSystem.actions["Sprint"].ReadValue<float>() > .5f ? PlayerStats.runSpeed : walkSpeed;
+        currentSpeed = KeyBinds.Instance.sprintInput.triggered ? PlayerStats.runSpeed : walkSpeed;
 
         Vector3 moveVec = GetMovementVector(currentSpeed);
 
         if (characterController.isGrounded)
         {
-            //Start jump
-            if (InputSystem.actions["Jump"].ReadValue<float>() > .2f)
-                Jump();
-
             //Jump physics
             if (_yVelocity < 0)
                 _yVelocity = 0;
@@ -67,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     private void LateUpdate()
     {
         if (GameManager.singleton.GAMEOVER) return;
-        Vector2 moveInp = InputSystem.actions["Move"].ReadValue<Vector2>();
+        Vector2 moveInp = KeyBinds.Instance.movementInput.ReadValue<Vector2>();
 
         if (moveInp != Vector2.zero || aiming || shooting)
         {
@@ -108,15 +101,9 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 GetMovementVector(float currentSpeed)
     {
-        Vector2 moveInp = InputSystem.actions["Move"].ReadValue<Vector2>();
+        Vector2 moveInp = KeyBinds.Instance.movementInput.ReadValue<Vector2>();
         Vector3 moveDir = transform.forward * moveInp.y + transform.right * moveInp.x;
 
         return currentSpeed * Time.deltaTime * moveDir;
-    }
-
-    void Jump()
-    {
-        if (!canJump) return;
-        _yVelocity = jumpPower;
     }
 }

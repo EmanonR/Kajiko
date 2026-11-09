@@ -7,6 +7,7 @@ public class Entity : MonoBehaviour
 
     [HideInInspector]
     public float currentHP = 50;
+    bool isDead;
 
     protected virtual void Awake()
     {
@@ -15,6 +16,8 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(float incoming)
     {
+        if (isDead) return;
+
         currentHP -= incoming;
 
         if (currentHP <= 0 ) 
@@ -28,6 +31,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Death()
     {
+        isDead = true;
         Destroy(gameObject);
     }
 }

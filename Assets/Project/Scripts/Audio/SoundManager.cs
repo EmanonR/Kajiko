@@ -70,6 +70,7 @@ public class SoundManager : MonoBehaviour
         BGM2 = ao2;
 
         ao1.clip = BGMPlayList.instance.GetSongAtIndex(0);
+        currentBGMLength = ao1.clip.length;
         ao1.Play(); 
         ao2.Play();
         ao1.loop = true;
@@ -78,6 +79,7 @@ public class SoundManager : MonoBehaviour
 
     public void SwapBGM(AudioClip newClip)
     {
+        currentBGMTime = 0;
         lerpingBGMs = true;
         currentBGMLength = newClip.length;
 
@@ -101,11 +103,9 @@ public class SoundManager : MonoBehaviour
             LerpBGM();
 
         currentBGMTime += Time.unscaledDeltaTime;
+
         if (currentBGMTime > currentBGMLength - crossFadeTime)
-        {
             SwapBGM(BGMPlayList.instance.GetNextSong());
-            currentBGMTime = 0;
-        }
 
         UpdateVolumes();
     }

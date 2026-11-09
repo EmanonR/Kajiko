@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerAnimationController : MonoBehaviour
 {
@@ -54,7 +53,7 @@ public class PlayerAnimationController : MonoBehaviour
                 PlayAnimation("Idle");
                 break;
             case PlayerMovement.MovementState.Walking:
-                Vector2 moveInp = InputSystem.actions["Move"].ReadValue<Vector2>();
+                Vector2 moveInp = KeyBinds.Instance.movementInput.ReadValue<Vector2>();
 
                 animator.SetFloat("MoveX", moveInp.x);
                 animator.SetFloat("MoveZ", moveInp.y);

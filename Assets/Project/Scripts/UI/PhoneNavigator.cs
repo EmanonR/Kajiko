@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PhoneNavigator : MonoBehaviour
 {
@@ -8,9 +7,6 @@ public class PhoneNavigator : MonoBehaviour
 
     [SerializeField] bool open;
 
-    public InputAction phoneKey;
-    public InputAction playKey;
-    public InputAction phoneNav;
     public AudioSource AudioSource;
 
     [Header("Song List")]
@@ -25,9 +21,6 @@ public class PhoneNavigator : MonoBehaviour
 
     private void Awake()
     {
-        phoneKey.Enable();
-        phoneNav.Enable();
-        playKey.Enable();
         PhoneFlip();
     }
 
@@ -53,23 +46,26 @@ public class PhoneNavigator : MonoBehaviour
 
     private void Update()
     {
-        if (phoneKey.triggered)
+        if (KeyBinds.Instance.phoneOpenInput.triggered)
         {
             open = !open;
             PhoneFlip();
         }
 
-        if (playKey.triggered)
+        if (!open) return;
+
+        if (KeyBinds.Instance.interactInput.triggered)
             PlaySelected();
 
-
-        Vector2 phoneInp = phoneNav.ReadValue<Vector2>();
+        Vector2 phoneInp = KeyBinds.Instance.phoneNavigationInput.ReadValue<Vector2>();
 
         if (phoneInp.y == 0)
         {
             phonePressedThisFrame = false;
             return;
         }
+
+        if (!open) return;
 
         if (phonePressedThisFrame) return;
 

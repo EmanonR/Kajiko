@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class FlameThrower : MonoBehaviour
 {
@@ -12,9 +11,6 @@ public class FlameThrower : MonoBehaviour
     public float currentAmmo;
 
     [Header("Setup")]
-    public InputAction shoot;
-    public InputAction aim;
-    public InputAction reloadButton;
     public ParticleSystem flameParticles;
     public Transform cam;
 
@@ -34,10 +30,8 @@ public class FlameThrower : MonoBehaviour
 
     void Start()
     {
-        reloadButton.Enable();
-        shoot.Enable();
-        aim.Enable();
         currentAmmo = maxAmmo;
+        audioSource.clip = flameEndClip;
     }
 
     private void Update()
@@ -45,7 +39,7 @@ public class FlameThrower : MonoBehaviour
         if (GameManager.singleton.GAMEOVER) return;
         if (GameManager.singleton.paused) return;
 
-        if (currentAmmo > 0 && shoot.ReadValue<float>() > .5f)
+        if (currentAmmo > 0 && KeyBinds.Instance.shootInput.ReadValue<float>() > .5f)
         {
             if (currentAmmo <= 0) return;
 
@@ -73,7 +67,7 @@ public class FlameThrower : MonoBehaviour
             }
         }
 
-        if (aim.ReadValue<float>() > .5f)
+        if (KeyBinds.Instance.aimInput.ReadValue<float>() > .5f)
         {
             onAim?.Invoke(true);
         }
@@ -82,7 +76,7 @@ public class FlameThrower : MonoBehaviour
             onAim?.Invoke(false);
         }
 
-        if (reloadButton.ReadValue<float>() > .5f)
+        if (KeyBinds.Instance.reloadInput.ReadValue<float>() > .5f)
         {
             currentAmmo = maxAmmo;
             CanvasManager.singleton.UpdateAmmoUI(currentAmmo, maxAmmo);

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +7,6 @@ public class GameManager : MonoBehaviour
     public bool GAMEOVER;
     public float timeSinceAlert = 0;
     public GameObject player;
-
-    public InputAction pauseButton;
 
     public static GameManager singleton;
 
@@ -32,8 +29,6 @@ public class GameManager : MonoBehaviour
         ScoreManager.score = 0;
 
         singleton = this;
-
-        pauseButton.Enable();
     }
     private void Update()
     {
@@ -45,7 +40,7 @@ public class GameManager : MonoBehaviour
         if (policeAlerted)
             timeSinceAlert += Time.deltaTime;
 
-        if (pauseButton.triggered)
+        if (KeyBinds.Instance.pauseInput.triggered)
         {
             paused = true;
             Time.timeScale = 0f;

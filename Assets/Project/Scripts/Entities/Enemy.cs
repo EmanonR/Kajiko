@@ -12,9 +12,7 @@ public class Enemy : Entity
     {
         ScoreManager.AddScore(maxHP / 2);
 
-        int ran = Random.Range(0, 101);
-        print(ran);
-        if (ran <= PlayerStats.healingDropChance)
+        if (Random.Range(0, 100) <= PlayerStats.healingDropChance)
             Instantiate(healingPrefab, transform.position, Quaternion.identity);
 
         base.Death();
