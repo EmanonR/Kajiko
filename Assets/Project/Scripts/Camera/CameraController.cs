@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public Transform followObject;
     public Vector2 cameraOffset;
-    public float mouseSensitvity = .5f;
+    public float mouseSensitivity = .5f;
     public float CameraYLimit = 45f;
     public float sphereCastSize = 1f;
     public LayerMask collisionMask;
@@ -92,7 +92,7 @@ public class CameraController : MonoBehaviour
 
     void RotateCam(Vector2 mouseInput)
     {
-        transform.eulerAngles += new Vector3(-mouseInput.y, mouseInput.x, 0) * mouseSensitvity;
+        transform.eulerAngles += new Vector3(-mouseInput.y, mouseInput.x, 0) * mouseSensitivity;
         transform.eulerAngles = new(ClampRotation(transform.eulerAngles.x), transform.eulerAngles.y, transform.eulerAngles.z);
     }
 

@@ -26,13 +26,13 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         FlameThrower.onAim += OnAimEvent;
-        FlameThrower.onShoot += OnShootvent;
+        FlameThrower.onShoot += OnShootEvent;
     }
 
     private void OnDestroy()
     {
         FlameThrower.onAim -= OnAimEvent;
-        FlameThrower.onShoot -= OnShootvent;
+        FlameThrower.onShoot -= OnShootEvent;
     }
 
     private void Update()
@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         aiming = aimR;
     }
 
-    void OnShootvent(bool aimR)
+    void OnShootEvent(bool aimR)
     {
         shooting = aimR;
     }
