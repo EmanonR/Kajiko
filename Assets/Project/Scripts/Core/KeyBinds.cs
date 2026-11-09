@@ -39,6 +39,7 @@ public class KeyBinds : MonoBehaviour
     void EnableAll()
     {
         movementInput.Enable();
+        sprintInput.Enable();
         shootInput.Enable();
         aimInput.Enable();
         scrollInput.Enable();
@@ -53,6 +54,7 @@ public class KeyBinds : MonoBehaviour
     private void OnDisable()
     {
         movementInput.Disable();
+        sprintInput.Disable();
         shootInput.Disable();
         aimInput.Disable();
         scrollInput.Disable();

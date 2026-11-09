@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         if (GameManager.singleton.GAMEOVER) return;
         if (GameManager.singleton.paused) return;
 
-        currentSpeed = KeyBinds.Instance.sprintInput.triggered ? PlayerStats.runSpeed : walkSpeed;
+        currentSpeed = KeyBinds.Instance.sprintInput.IsPressed() ? PlayerStats.runSpeed : walkSpeed;
 
         Vector3 moveVec = GetMovementVector(currentSpeed);
 

@@ -65,8 +65,6 @@ public class PhoneNavigator : MonoBehaviour
             return;
         }
 
-        if (!open) return;
-
         if (phonePressedThisFrame) return;
 
         if (phoneInp.y < 0)

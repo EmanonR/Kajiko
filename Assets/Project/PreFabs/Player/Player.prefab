@@ -452,24 +452,6 @@ MonoBehaviour:
   nearZoom: 2
   zoomSpeed: 0.1
   targetZoom: 0.515
-  scrollInput:
-    m_Name: Scroll Input
-    m_Type: 0
-    m_ExpectedControlType: Vector2
-    m_Id: b4b4c785-adcf-4af0-a530-6346bafaa6fe
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: aab4eda7-193e-4d63-86c2-eb66cc7b5cf1
-      m_Path: <Mouse>/scroll
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Scroll Input
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
 --- !u!20 &8040486645152165691
 Camera:
   m_ObjectHideFlags: 0
@@ -6017,7 +5999,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   characterController: {fileID: 6550081655224725063}
   walkSpeed: 8
-  canJump: 0
   jumpPower: 15
   jumpTime: 1
   turnSmoothTime: 0.02
@@ -6037,60 +6018,6 @@ MonoBehaviour:
   FPS: 10
   maxAmmo: 100
   currentAmmo: 0
-  shoot:
-    m_Name: Shoot
-    m_Type: 0
-    m_ExpectedControlType: Button
-    m_Id: 6ba62385-6ffe-4181-bd78-b236c86f737a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 711d861c-0385-43df-8054-6a6b5854541e
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
-  aim:
-    m_Name: Aim
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 9a648e6f-5a82-43af-8a98-22b755e164ee
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 0d625077-1af4-4492-8df8-2c6fcc30eff2
-      m_Path: <Mouse>/rightButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Aim
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
-  reloadButton:
-    m_Name: Reload Button
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b1a60d3f-be02-41f0-9984-ae085497fe39
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: c4f7a7f9-bdd1-40da-a96e-40e4df9700f0
-      m_Path: <Keyboard>/r
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Reload Button
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
   flameParticles: {fileID: 3504433612660375668}
   cam: {fileID: 8183843715722071277}
   rayDistance: 13
