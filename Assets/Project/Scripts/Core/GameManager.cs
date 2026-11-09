@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public static event Action onPause;
     public static event Action onResume;
+    public static event Action onGameOver;
 
     public bool policeAlerted = false;
 
@@ -35,7 +36,12 @@ public class GameManager : MonoBehaviour
         if (GAMEOVER) return;
         if (paused) return;
 
-        if (Player.dead) GAMEOVER = true;
+        if (Player.dead)
+        {
+            GAMEOVER = true;
+            onGameOver?.Invoke();
+            return;
+        }
 
         if (policeAlerted)
             timeSinceAlert += Time.deltaTime;

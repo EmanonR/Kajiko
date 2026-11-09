@@ -23,13 +23,21 @@ public class PlayerAnimationController : MonoBehaviour
     {
         FlameThrower.onShoot += onShoot;
         FlameThrower.onAim += onAim;
+        GameManager.onGameOver += OnGameOver;
     }
 
     private void OnDestroy()
     {
         FlameThrower.onShoot -= onShoot;
         FlameThrower.onAim -= onAim;
+        GameManager.onGameOver -= OnGameOver;
     }
+
+    void OnGameOver()
+    {
+        //Replace with death
+        PlayAnimation("Idle");
+    } 
 
     private void Start()
     {

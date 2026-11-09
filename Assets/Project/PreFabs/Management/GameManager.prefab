@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6289062990711908238}
   - component: {fileID: 704908080612373851}
   - component: {fileID: 5688504657511838367}
+  - component: {fileID: 3754924603827726108}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,24 +52,6 @@ MonoBehaviour:
   GAMEOVER: 0
   timeSinceAlert: 0
   player: {fileID: 0}
-  pauseButton:
-    m_Name: Pause Button
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 96d8efbc-dece-4d82-8c0f-5f5a44bf64b4
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 0369445b-57cc-452c-a9f1-557f3df43618
-      m_Path: <Keyboard>/escape
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Pause Button
-      m_Flags: 0
-    m_Flags: 0
-    m_Priority: 0
   policeAlerted: 0
 --- !u!114 &6289062990711908238
 MonoBehaviour:
@@ -118,4 +101,293 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d4fb0e14630de43b1cf9c3a5a96d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemies: []
+--- !u!114 &3754924603827726108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171877548911701976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabf3f0a21cd73e448cd73365a3811e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  movementInput:
+    m_Name: Movement Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3734a04a-e021-4805-a3d9-e4decf7d04d5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: c8526a6c-c48e-459b-8014-585374026139
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 9af18fa5-799f-4ee8-8937-c4d92fd9c2fb
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 7948c373-67bf-43b3-9923-5127418d7dfc
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 016a615d-33a1-4f97-861a-d10db8f9648c
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 4a9f31c5-6067-41d6-b221-218c2f52ff00
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Movement Input
+      m_Flags: 8
+    m_Flags: 0
+    m_Priority: 0
+  sprintInput:
+    m_Name: Sprint Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 102cc395-c0d1-44ce-8fdf-893c11b9c76a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b4c1b842-982c-4beb-abbd-6bfbbcac11d9
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Sprint Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  shootInput:
+    m_Name: Shoot Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 4f2a1c70-c770-48ab-9202-6a16c6f80d89
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8ecdbba9-d55a-4721-8ac1-2bf9d3154b9c
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  aimInput:
+    m_Name: Aim Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: d7bb65d1-ac18-4da1-822f-9b578fc2b977
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: bf210be3-c71f-4b49-9177-30e587b53a3b
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  reloadInput:
+    m_Name: Reload Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 38283a7d-02f2-4af9-ab7f-f065f70cb171
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b003e86a-9814-46d7-88b4-59e9f25c5572
+      m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Reload Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  scrollInput:
+    m_Name: Scroll Input
+    m_Type: 0
+    m_ExpectedControlType: Button
+    m_Id: 4fb4f493-4ce3-409b-a2c1-f375d930464d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 00a9aa48-0e9d-4894-9a29-b37861295b8f
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Scroll Input
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 753604cb-09ca-41e4-803b-a11f194af8bc
+      m_Path: <Mouse>/scroll/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Scroll Input
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: c2401561-2319-4ff1-a46e-2cc923d74522
+      m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Scroll Input
+      m_Flags: 8
+    m_Flags: 0
+    m_Priority: 0
+  mouseInput:
+    m_Name: Mouse Input
+    m_Type: 2
+    m_ExpectedControlType: Vector2
+    m_Id: d8781bd4-b991-4154-a620-c5916691c3eb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4ab817c5-23de-41c7-b065-d74ff1fd8647
+      m_Path: <Mouse>/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  phoneNavigationInput:
+    m_Name: Phone Navigation Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6a50e6da-c4be-4eea-b29d-507d9e2c9249
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 07029c27-6d02-4e1c-9f53-874548e5361e
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Phone Navigation Input
+      m_Flags: 4
+    - m_Name: up
+      m_Id: fc443bac-eb4d-4bdd-8db0-bc2850cd9245
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Phone Navigation Input
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 902e36e2-de98-47a1-8f00-4c53e7b62320
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Phone Navigation Input
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 75ea5c42-ec39-470d-a33f-1540ddcf0f20
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Phone Navigation Input
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 9608d71d-41cb-4bc1-a736-152d04f048d2
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Phone Navigation Input
+      m_Flags: 8
+    m_Flags: 0
+    m_Priority: 0
+  phoneOpenInput:
+    m_Name: Phone Open Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: cc7ce884-7ee8-4900-aaf6-55773ff4070e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 04e165c9-c842-4b50-8d7c-1691abedb47e
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Phone Open Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  interactInput:
+    m_Name: Interact Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 529457e9-9e73-48b2-8f3d-c797af1cb51d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7860fba0-1a70-448a-b04f-55286434ecf6
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  pauseInput:
+    m_Name: Pause Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 232c826c-1614-4d48-b9ec-5d7c5e838669
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 313daf6d-77aa-42a5-85a1-f58b1658f323
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause Input
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0

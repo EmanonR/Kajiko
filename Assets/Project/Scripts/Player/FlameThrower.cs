@@ -36,6 +36,12 @@ public class FlameThrower : MonoBehaviour
         shooting = false;
         aiming = false;
         flameParticles.Stop();
+        GameManager.onGameOver += StopFlame;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameOver -= StopFlame;
     }
 
     void Start()
@@ -76,20 +82,7 @@ public class FlameThrower : MonoBehaviour
         }
         else
         {
-            if (shooting)
-            {
-                flameParticles.Stop();
-                onShoot?.Invoke(false);
-
-                if (audioSource.clip != flameEndClip)
-                {
-                    audioSource.clip = flameEndClip;
-                    audioSource.loop = false;
-                    audioSource.Play();
-                }
-            }
-
-            shooting = false;
+            StopFlame();
         }
     }
 
@@ -119,6 +112,23 @@ public class FlameThrower : MonoBehaviour
             currentAmmo = maxAmmo;
             HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
         }
+    }
+
+    void StopFlame()
+    {
+        if (shooting)
+        {
+            flameParticles.Stop();
+            onShoot?.Invoke(false);
+            audioSource.clip = flameEndClip;
+            audioSource.loop = false;
+            audioSource.Play();
+        }
+
+        shooting = false;
+
+        if (aiming) onAim?.Invoke(false);
+        aiming = false;
     }
 
     void Shoot()
