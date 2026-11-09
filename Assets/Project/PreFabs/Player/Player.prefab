@@ -442,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   followObject: {fileID: 1185149765677273734}
   cameraOffset: {x: 1.06, y: 1.19}
-  mouseSensitvity: 0.2
+  mouseSensitivity: 0.2
   CameraYLimit: 45
   sphereCastSize: 0.25
   collisionMask:
