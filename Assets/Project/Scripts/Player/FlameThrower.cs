@@ -82,7 +82,7 @@ public class FlameThrower : MonoBehaviour
         }
         else
         {
-            StopFlame();
+            StopShooting();
         }
     }
 
@@ -114,7 +114,7 @@ public class FlameThrower : MonoBehaviour
         }
     }
 
-    void StopFlame()
+    void StopShooting()
     {
         if (shooting)
         {
@@ -126,6 +126,11 @@ public class FlameThrower : MonoBehaviour
         }
 
         shooting = false;
+    }
+
+    void StopFlame()
+    {
+        StopShooting();
 
         if (aiming) onAim?.Invoke(false);
         aiming = false;

@@ -16,9 +16,10 @@ public class KeyBinds : MonoBehaviour
     public InputAction mouseInput;
 
     [Header("Phone and interactions")]
-    public InputAction phoneNavigationInput;
     public InputAction phoneOpenInput;
     public InputAction interactInput;
+
+    [Header("Menu")]
     public InputAction pauseInput;
 
     public static KeyBinds Instance;
@@ -45,7 +46,6 @@ public class KeyBinds : MonoBehaviour
         scrollInput.Enable();
         mouseInput.Enable();
         reloadInput.Enable();
-        phoneNavigationInput.Enable();
         phoneOpenInput.Enable();
         interactInput.Enable();
         pauseInput.Enable();
@@ -60,7 +60,6 @@ public class KeyBinds : MonoBehaviour
         scrollInput.Disable();
         mouseInput.Disable();
         reloadInput.Disable();
-        phoneNavigationInput.Disable();
         phoneOpenInput.Disable();
         interactInput.Disable();
         pauseInput.Disable();

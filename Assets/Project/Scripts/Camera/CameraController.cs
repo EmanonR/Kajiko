@@ -105,6 +105,8 @@ public class CameraController : MonoBehaviour
 
     void CameraZoom()
     {
+        if (Phone.IsOpen) return;
+
         targetZoom = Mathf.Clamp(targetZoom += KeyBinds.Instance.scrollInput.ReadValue<float>() * zoomSpeed, 0, 1);
     }
 

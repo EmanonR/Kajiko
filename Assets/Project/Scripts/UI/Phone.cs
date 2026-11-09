@@ -14,13 +14,15 @@ public class Phone : MonoBehaviour
     public Transform viewPort;
     public GameObject SongListPrefab;
 
+    public static bool IsOpen { get; private set; }
+
     List<SongListItem> songsList = new();
 
     int currentSelectedSong = 0;
-    bool phonePressedThisFrame;
 
     private void Awake()
     {
+        IsOpen = false;
         PhoneFlip();
     }
 
@@ -57,24 +59,18 @@ public class Phone : MonoBehaviour
         if (KeyBinds.Instance.interactInput.triggered)
             PlaySelected();
 
-        Vector2 phoneInp = KeyBinds.Instance.phoneNavigationInput.ReadValue<Vector2>();
+        float scroll = KeyBinds.Instance.scrollInput.ReadValue<float>();
 
-        if (phoneInp.y == 0)
-        {
-            phonePressedThisFrame = false;
-            return;
-        }
+        if (scroll == 0) return;
 
-        if (phonePressedThisFrame) return;
-
-        if (phoneInp.y < 0)
+        if (scroll < 0)
         {
             currentSelectedSong++;
 
             if (currentSelectedSong >= MusicPlaylist.Instance.GetPlayList().Count)
                 currentSelectedSong = 0;
         }
-        else if (phoneInp.y > 0)
+        else if (scroll > 0)
         {
             currentSelectedSong--;
 
@@ -84,8 +80,6 @@ public class Phone : MonoBehaviour
         }
 
         UpdateSelected();
-
-        phonePressedThisFrame = true;
     }
 
     void UpdatePlaying()
@@ -119,6 +113,8 @@ public class Phone : MonoBehaviour
 
     void PhoneFlip()
     {
+        IsOpen = open;
+
         if (open)
             phoneAnimator.Play("PhoneOpen");
         else
