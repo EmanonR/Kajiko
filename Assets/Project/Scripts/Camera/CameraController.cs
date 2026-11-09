@@ -34,6 +34,11 @@ public class CameraController : MonoBehaviour
         FlameThrower.onAim += AimOverride;
     }
 
+    private void OnDestroy()
+    {
+        FlameThrower.onAim -= AimOverride;
+    }
+
     private void LateUpdate()
     {
         if (GameManager.singleton != null)

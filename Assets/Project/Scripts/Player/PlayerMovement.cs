@@ -29,6 +29,12 @@ public class PlayerMovement : MonoBehaviour
         FlameThrower.onShoot += OnShootvent;
     }
 
+    private void OnDestroy()
+    {
+        FlameThrower.onAim -= OnAimEvent;
+        FlameThrower.onShoot -= OnShootvent;
+    }
+
     private void Update()
     {
 

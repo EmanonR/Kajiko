@@ -8,7 +8,6 @@ public class EnemyFleeState : State
 
     NavMeshAgent agent;
     HidingSpot targetHidingSpot = null;
-    bool destinationFound = false;
 
     private void Awake()
     {
@@ -26,6 +25,9 @@ public class EnemyFleeState : State
             if (targetHidingSpot != null)
                 agent.destination = targetHidingSpot.transform.position;
         }
+
+        if (targetHidingSpot == null)
+            return this;
         
         float dist = Vector3.Distance(transform.position, targetHidingSpot.transform.position);
 

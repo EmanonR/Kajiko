@@ -9,6 +9,12 @@ public class MouseHandler : MonoBehaviour
         GameManager.onResume += EventResume;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.onPause -= EventPause;
+        GameManager.onResume -= EventResume;
+    }
+
     private void Update()
     {
         if (GameManager.singleton.GAMEOVER)

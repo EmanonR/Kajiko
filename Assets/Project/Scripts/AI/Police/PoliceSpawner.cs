@@ -23,30 +23,34 @@ public class PoliceSpawner : MonoBehaviour
 
         if (GameManager.singleton.timeSinceAlert >= 10f)
         {
-            GameObject police = Instantiate(policePrefab);
+            Transform spawnPoint = GetSpawnPoint();
 
-            Transform selectedSpawnPoint = null;
+            if (spawnPoint == null) return;
 
-            while (selectedSpawnPoint == null)
-            {
-                int i = Random.Range(0, spawnPoints.Count);
-
-                Transform testingTransform = spawnPoints[i];
-
-                float dist = Vector3.Distance(GameManager.singleton.player.transform.position, testingTransform.position);
-
-                if (dist > spawnRangeLimiter)
-                    selectedSpawnPoint = testingTransform;
-            }
-
-            police.transform.position = selectedSpawnPoint.position;
+            GameObject police = Instantiate(policePrefab, spawnPoint.position, Quaternion.identity);
 
             police.GetComponent<NavMeshAgent>().enabled = true;
-            police.GetComponent<BehaviorGraphAgent>().enabled = true;
-            police.GetComponent<BehaviorGraphAgent>().SetVariableValue("Player", GameManager.singleton.player.transform);
-            police.GetComponent<BehaviorGraphAgent>().Init();
-            police.GetComponent<BehaviorGraphAgent>().SetVariableValue("Player", GameManager.singleton.player.transform);
+            BehaviorGraphAgent agent = police.GetComponent<BehaviorGraphAgent>();
+            agent.enabled = true;
+            agent.Init();
+            agent.SetVariableValue("Player", GameManager.singleton.player.transform);
         }
+    }
+
+    Transform GetSpawnPoint()
+    {
+        Vector3 playerPos = GameManager.singleton.player.transform.position;
+        List<Transform> valid = new();
+
+        foreach (Transform point in spawnPoints)
+        {
+            if (Vector3.Distance(playerPos, point.position) > spawnRangeLimiter) 
+                valid.Add(point);
+        }
+
+        if (valid.Count == 0) return null;
+
+        return valid[Random.Range(0, valid.Count)];
     }
 
     private void OnDrawGizmos()

@@ -9,4 +9,9 @@ public class HidingSpot : MonoBehaviour
     {
         hidingSpots.Add(this);
     }
+
+    private void OnDestroy()
+    {
+        hidingSpots.Remove(this);
+    }
 }
