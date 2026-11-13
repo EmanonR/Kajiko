@@ -110,6 +110,11 @@ public class PlayerAnimationController : MonoBehaviour
         currentAnimation = clipName;
     }
 
+    public float GetClipLength(int animationLayer = 0)
+    {
+        return animator.GetCurrentAnimatorClipInfo(animationLayer).Length;
+    }
+
     void onShoot(bool i) { shooting = i; }
     void onAim(bool i) { aiming = i; }
 

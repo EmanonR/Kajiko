@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class FlameThrower : MonoBehaviour
@@ -30,6 +31,8 @@ public class FlameThrower : MonoBehaviour
 
     bool shooting;
     bool aiming;
+    bool reloading;
+    PlayerAnimationController animController;
 
     private void Awake()
     {
@@ -37,6 +40,7 @@ public class FlameThrower : MonoBehaviour
         aiming = false;
         flameParticles.Stop();
         GameManager.onGameOver += StopFlame;
+        animController = GetComponent<PlayerAnimationController>();
     }
 
     private void OnDestroy()
@@ -62,6 +66,8 @@ public class FlameThrower : MonoBehaviour
 
     void HandleShoot()
     {
+        if (reloading) return;
+
         if (currentAmmo > 0 && KeyBinds.Instance.shootInput.IsPressed())
         {
             if (!shooting)
@@ -88,6 +94,8 @@ public class FlameThrower : MonoBehaviour
 
     void HandleAim()
     {
+        if (reloading) return;
+
         if (KeyBinds.Instance.aimInput.IsPressed())
         {
             if (!aiming)
@@ -106,12 +114,27 @@ public class FlameThrower : MonoBehaviour
 
     void HandleReload()
     {
+        if (reloading) return;
 
         if (KeyBinds.Instance.reloadInput.IsPressed())
         {
-            currentAmmo = maxAmmo;
-            HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
+            StartCoroutine(ReloadTime());
         }
+    }
+
+    IEnumerator ReloadTime()
+    {
+        reloading = true;
+        animController.PlayAnimation("Reload");
+
+        yield return null;
+        AnimatorStateInfo stateInfo = animController.animator.GetCurrentAnimatorStateInfo(1);
+        yield return new WaitForSeconds((1f - stateInfo.normalizedTime) * stateInfo.length);
+
+        currentAmmo = maxAmmo;
+        HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
+
+        reloading = false;
     }
 
     void StopShooting()
