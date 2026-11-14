@@ -1,33 +1,30 @@
 using System.Collections.Generic;
 using UnityEngine;
-
 [ExecuteAlways]
+
+[RequireComponent(typeof(LineRenderer))]
 public class DrawLineBetweenTargets : MonoBehaviour
 {
     public List<Transform> transforms = null;
-    bool loop;
+    public bool loop;
 
     LineRenderer lineRenderer;
 
-    private void Awake()
-    {
-        if (lineRenderer == null)
-        lineRenderer = GetComponent<LineRenderer>();
-    }
-
     private void Update()
     {
+        if (lineRenderer == null) 
+            lineRenderer = GetComponent<LineRenderer>();
+
         if (transforms.Count == 0) return;
 
         List<Vector3> positions = new();
-
-        positions.Clear();
 
         foreach (var item in transforms)
         {
             positions.Add(item.position);
         }
 
+        lineRenderer.positionCount = positions.Count;
         lineRenderer.SetPositions(positions.ToArray());
         lineRenderer.loop = loop;
     }

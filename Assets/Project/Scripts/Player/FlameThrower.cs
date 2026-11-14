@@ -125,11 +125,13 @@ public class FlameThrower : MonoBehaviour
     IEnumerator ReloadTime()
     {
         reloading = true;
+        StopFlame();
         animController.PlayAnimation("Reload");
 
         yield return null;
-        AnimatorStateInfo stateInfo = animController.animator.GetCurrentAnimatorStateInfo(1);
-        yield return new WaitForSeconds((1f - stateInfo.normalizedTime) * stateInfo.length);
+        //AnimatorStateInfo stateInfo = animController.animator.GetCurrentAnimatorStateInfo(1);
+        //yield return new WaitForSeconds((1f - stateInfo.normalizedTime) * stateInfo.length);
+        yield return new WaitForSeconds(animController.GetClipLength(1));
 
         currentAmmo = maxAmmo;
         HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
