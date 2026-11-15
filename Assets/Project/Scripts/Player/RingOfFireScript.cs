@@ -29,7 +29,9 @@ public class RingOfFireScript : MonoBehaviour
 
     public void SpawnEmbers(int amount, float distance)
     {
-        float step = 360 / amount;
+        if (amount <= 0) return;
+
+        float step = 360f / amount;
 
         for (int i = 0; i < amount; i++)
         {

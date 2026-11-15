@@ -12,6 +12,13 @@ public class NPC : Entity
         player = GameManager.Instance.player.transform;
     }
 
+    public override void TakeDamage(float incoming)
+    {
+        ScoreManager.AddScore(incoming / 2);
+
+        base.TakeDamage(incoming);
+    }
+
     public override void Death()
     {
         ScoreManager.AddScore(maxHP / 2);

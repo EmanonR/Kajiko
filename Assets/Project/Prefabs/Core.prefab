@@ -1784,6 +1784,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6438808211198875319}
+  - {fileID: 6534991432188950194}
   - {fileID: 8191445520809362630}
   - {fileID: 3693125743201014928}
   - {fileID: 5896731688384829006}
@@ -1791,6 +1792,7 @@ Transform:
   - {fileID: 3526040124217792621}
   - {fileID: 644569618810629279}
   - {fileID: 7867137383233033238}
+  - {fileID: 2457874388121650582}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2153973608902310620
@@ -6443,7 +6445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damagePerSecond: 50
-  fuelPerSecond: 5
+  fuelPerSecond: 10
   flameParticles: {fileID: 8014343809157504899}
   cam: {fileID: 3526040124217792621}
   rayDistance: 13
@@ -7005,7 +7007,7 @@ ParticleSystemForceField:
     m_RotationAttractionCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -19789,6 +19791,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7753434793376867042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7533229896888908455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6534991432188950194}
+  - component: {fileID: 6785294774097789829}
+  m_Layer: 0
+  m_Name: LevelingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6534991432188950194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533229896888908455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4526531485518776087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6785294774097789829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533229896888908455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3fa3580fe9fc04db65ded948c0c30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  levelSlider: {fileID: 0}
+  baseEXP: 100
+  targetIncrease: 1.5
 --- !u!1 &7548873179503202470
 GameObject:
   m_ObjectHideFlags: 0
@@ -25809,6 +25858,76 @@ Transform:
   - {fileID: 1396918967096802590}
   m_Father: {fileID: 7180973229905068028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9161618521096224945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2457874388121650582}
+  - component: {fileID: 1560206263709494361}
+  - component: {fileID: 6817704035116043970}
+  m_Layer: 0
+  m_Name: Ring of Fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2457874388121650582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161618521096224945}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4526531485518776087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560206263709494361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161618521096224945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b26fc8da11d4674aa0bfcef59d9930c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  damageAmount: 15
+  rotationSpeed: 75
+  startCount: 2
+  emberDistance: 5
+  emberPrefab: {fileID: 4396955924107726347, guid: 32bde162ecce6db4a966f5c46c844baf, type: 3}
+--- !u!1818360608 &6817704035116043970
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161618521096224945}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 1, z: 0}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 7867137383233033238}
+    weight: 1
 --- !u!1 &9184301779871626534
 GameObject:
   m_ObjectHideFlags: 0

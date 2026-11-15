@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class HUD : MonoBehaviour
     public GameObject GameOverPanel;
     public TMP_Text scoreText;
     public TMP_Text FuelGaugeText;
+    public Image FuelGauge;
     public TMP_Text hpText;
 
     public static HUD Instance;
@@ -61,12 +63,13 @@ public class HUD : MonoBehaviour
 
     void UpdateHP(float current, float max)
     {
-        hpText.text = $"HP: {current:f0}/{max}";
+        hpText.text = $"{current:f0}/{max}";
     }
 
     public void UpdateAmmoUI(float current, float max)
     {
         FuelGaugeText.text = current.ToString("f0") + "/" + max.ToString("f0");
+        FuelGauge.fillAmount = current / max;
     }
 
     void UpdateScore()

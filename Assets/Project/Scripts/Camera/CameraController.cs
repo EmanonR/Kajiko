@@ -96,7 +96,7 @@ public class CameraController : MonoBehaviour
     {
         Vector3 fromPos = targetOffsetPos - transform.right * cameraOffset.x + transform.forward * sphereCastSize;
         Vector3 dir = (transform.position - fromPos).normalized;
-        Physics.SphereCast(fromPos, sphereCastSize, dir, out RaycastHit hit, dist, collisionMask);
+        Physics.SphereCast(fromPos, sphereCastSize, dir, out RaycastHit hit, dist, collisionMask, QueryTriggerInteraction.Ignore);
 
         if (hit.collider != null)
             transform.position = hit.point + (hit.normal * sphereCastSize);

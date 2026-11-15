@@ -6,7 +6,9 @@ public class DealDamageToNPC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out NPC npc))
+        NPC npc = other.GetComponentInParent<NPC>();
+
+        if (npc != null)
             npc.TakeDamage(damage);
     }
 }

@@ -51,7 +51,7 @@ public class LevelingManager : MonoBehaviour
         if (currentEXP >= targetEXP)
         {
             IncreaseLevel();
-
+            UpdateScore();
             levelSlider.value = (float)incoming / (float)targetEXP;
         }
     }
