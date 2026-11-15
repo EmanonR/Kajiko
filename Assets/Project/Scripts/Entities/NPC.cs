@@ -6,14 +6,15 @@ public class NPC : Entity
     public float visionRange = 15;
     public float attackRange = 5;
     public float interactRange = 1;
-    public GameObject healingPrefab;
+
+    private void Start()
+    {
+        player = GameManager.Instance.player.transform;
+    }
 
     public override void Death()
     {
         ScoreManager.AddScore(maxHP / 2);
-
-        if (Random.Range(0, 100) < PlayerStats.healingDropChance)
-            Instantiate(healingPrefab, transform.position, Quaternion.identity);
 
         base.Death();
     }

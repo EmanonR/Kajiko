@@ -25,12 +25,14 @@ public class HUD : MonoBehaviour
 
         Instance = this;
 
-        GameManager.onPause += PauseMenu;
+        player = GameManager.Instance.player.GetComponent<Player>();
+
+        GameManager.OnPause += PauseMenu;
         PausePanel.SetActive(false);
         GameOverPanel.SetActive(false);
         UIPanel.SetActive(true);
         FlameThrowerFuel.OnFuelChanged += UpdateAmmoUI;
-        GameManager.onGameOver += GameOverEvent;
+        GameManager.OnGameOver += GameOverEvent;
         ScoreManager.OnScoreChanged += UpdateScore;
     }
 
@@ -41,9 +43,9 @@ public class HUD : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.onPause -= PauseMenu;
+        GameManager.OnPause -= PauseMenu;
         FlameThrowerFuel.OnFuelChanged -= UpdateAmmoUI;
-        GameManager.onGameOver -= GameOverEvent;
+        GameManager.OnGameOver -= GameOverEvent;
         ScoreManager.OnScoreChanged -= UpdateScore;
     }
 

@@ -3,16 +3,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float timeSinceAlert = 0;
     public GameObject player;
 
     public static GameManager Instance;
 
-    public static event Action onPause;
-    public static event Action onResume;
-    public static event Action onGameOver;
+    public static event Action OnPause;
+    public static event Action OnResume;
+    public static event Action OnGameOver;
 
-    public bool policeAlerted = false;
 
     public GameState gameState;
 
@@ -31,41 +29,44 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Instance = this;
+
         Time.timeScale = 1f;
         gameState = GameState.Playing;
-        onResume?.Invoke();
 
         ScoreManager.ResetScore();
 
-        Instance = this;
+        player.GetComponent<Player>().OnDeath += OnDeath;
     }
+
+    private void OnDestroy()
+    {
+        player.GetComponent<Player>().OnDeath -= OnDeath;
+    }
+
     private void Update()
     {
         if (gameState != GameState.Playing) return;
-
-        if (Player.dead)
-        {
-            gameState = GameState.GameOver;
-            onGameOver?.Invoke();
-            return;
-        }
-
-        if (policeAlerted)
-            timeSinceAlert += Time.deltaTime;
 
         if (KeyBinds.Instance.pauseInput.triggered)
         {
             gameState = GameState.Paused;
             Time.timeScale = 0f;
-            onPause?.Invoke();
+            OnPause?.Invoke();
         }
+    }
+
+    void OnDeath()
+    {
+        gameState = GameState.GameOver;
+        OnGameOver?.Invoke();
     }
 
     public void InvokeResume()
     {
         gameState = GameState.Playing;
         Time.timeScale = 1f;
-        onResume?.Invoke();
+        OnResume?.Invoke();
     }
 
 }

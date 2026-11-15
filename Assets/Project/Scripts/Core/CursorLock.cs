@@ -5,16 +5,16 @@ public class CursorLock : MonoBehaviour
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        GameManager.onPause += EventPause;
-        GameManager.onResume += EventResume;
-        GameManager.onGameOver += OnGameOver;
+        GameManager.OnPause += EventPause;
+        GameManager.OnResume += EventResume;
+        GameManager.OnGameOver += OnGameOver;
     }
 
     private void OnDestroy()
     {
-        GameManager.onPause -= EventPause;
-        GameManager.onResume -= EventResume;
-        GameManager.onGameOver -= OnGameOver;
+        GameManager.OnPause -= EventPause;
+        GameManager.OnResume -= EventResume;
+        GameManager.OnGameOver -= OnGameOver;
     }
 
     void OnGameOver()

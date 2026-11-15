@@ -15,12 +15,12 @@ public class PoliceSpawner : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
 
-        int adjustedSpawnCount = defaultMaxSpawnCount + (int)(GameManager.Instance.timeSinceAlert / 30);
+        int adjustedSpawnCount = defaultMaxSpawnCount + (int)(HeatManager.Instance.timeSinceAlert / 30);
 
         if (EnemyTree.enemiesInScene.Count >= adjustedSpawnCount) return;
 
 
-        if (GameManager.Instance.timeSinceAlert >= 10f)
+        if (HeatManager.Instance.timeSinceAlert >= 10f)
         {
             Transform spawnPoint = GetSpawnPoint();
 

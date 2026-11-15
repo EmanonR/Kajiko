@@ -302,14 +302,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.44507045
-        functionName: SetReloadParticle
+        functionName: StartReloadParticles
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
       - time: 0.7466179
-        functionName: SetReloadParticle
+        functionName: StopReloadParticles
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

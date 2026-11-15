@@ -58,7 +58,7 @@ public class CivilianIdleState : State
         {
             movementState = MovementState.Flee;
             agent.speed = runSpeed;
-            GameManager.Instance.policeAlerted = true;
+            HeatManager.Instance.AlertPolice();
             return onSightState;
         }
         else

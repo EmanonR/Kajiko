@@ -1,14 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class Player : Entity
 {
-
-    public static bool dead = false;
-
     protected override void Awake()
     {
         base.Awake();
-        dead = false;
     }
 
     private void Update()
@@ -26,8 +24,6 @@ public class Player : Entity
 
     public override void Death()
     {
-        dead = true;
-
         //Dont despawn it!
         //base.Death();
     }

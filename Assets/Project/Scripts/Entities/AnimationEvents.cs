@@ -10,7 +10,8 @@ public class AnimationEvents : MonoBehaviour
 
     private void Awake()
     {
-        SetReloadParticle(0);
+        StopReloadParticles();
+
         if (reloadedParticle != null)
         {
             reloadedParticle.Stop();
@@ -22,20 +23,23 @@ public class AnimationEvents : MonoBehaviour
         stepSource.Play();
     }
 
-    public void SetReloadParticle(int set)
+    public void StartReloadParticles()
     {
         if (reloadParticles.Count == 0) return;
 
         foreach (var child in reloadParticles)
         {
-            if (set == 1)
-            {
-                child.Play();
-            }
-            else
-            {
-                child.Stop();
-            }
+            child.Play();
+        }
+    }
+
+    public void StopReloadParticles()
+    {
+        if (reloadParticles.Count == 0) return;
+
+        foreach (var child in reloadParticles)
+        {
+            child.Stop();
         }
     }
 

@@ -45,14 +45,14 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        GameManager.onPause += SnapShotPaused;
-        GameManager.onResume += SnapShotResume;
+        GameManager.OnPause += SnapShotPaused;
+        GameManager.OnResume += SnapShotResume;
     }
 
     private void OnDestroy()
     {
-        GameManager.onPause -= SnapShotPaused;
-        GameManager.onResume -= SnapShotResume;
+        GameManager.OnPause -= SnapShotPaused;
+        GameManager.OnResume -= SnapShotResume;
     }
 
     public void SnapShotPaused() => SwapSnapShot(true);

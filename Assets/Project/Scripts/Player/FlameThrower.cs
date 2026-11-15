@@ -40,14 +40,14 @@ public class FlameThrower : MonoBehaviour
         shooting = false;
         aiming = false;
         flameParticles.Stop();
-        GameManager.onGameOver += StopFlame;
+        GameManager.OnGameOver += StopFlame;
         animController = GetComponent<PlayerAnimationController>();
         fuel = GetComponent<FlameThrowerFuel>();
     }
 
     private void OnDestroy()
     {
-        GameManager.onGameOver -= StopFlame;
+        GameManager.OnGameOver -= StopFlame;
     }
 
     void Start()
@@ -67,6 +67,8 @@ public class FlameThrower : MonoBehaviour
     void HandleShoot()
     {
         if (reloading) return;
+
+        if (fuel.currentFuel == fuel.maxFuel) return;
 
         if (fuel.currentFuel > 0 && KeyBinds.Instance.shootInput.IsPressed())
         {

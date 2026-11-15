@@ -23,14 +23,14 @@ public class PlayerAnimationController : MonoBehaviour
     {
         FlameThrower.onShoot += onShoot;
         FlameThrower.onAim += onAim;
-        GameManager.onGameOver += OnGameOver;
+        GameManager.OnGameOver += OnGameOver;
     }
 
     private void OnDestroy()
     {
         FlameThrower.onShoot -= onShoot;
         FlameThrower.onAim -= onAim;
-        GameManager.onGameOver -= OnGameOver;
+        GameManager.OnGameOver -= OnGameOver;
     }
 
     void OnGameOver()
