@@ -12,18 +12,23 @@ public class LevelingManager : MonoBehaviour
     int currentEXP;
     int currentLevel = 1;
 
-    public static event Action OnLeveUp;
+    public static event Action OnLevelUp;
 
     private void Start()
     {
         ScoreManager.OnScoreChanged += UpdateScore;
     }
 
+    private void OnDestroy()
+    {
+        ScoreManager.OnScoreChanged -= UpdateScore;
+    }
+
     private void UpdateScore()
     {
         int remove = 0;
 
-        for (int i = 0; i < currentLevel; i++)
+        for (int i = 1; i < currentLevel; i++)
         {
             remove += DetermineEXPPerLevel(i);
         }
@@ -31,27 +36,29 @@ public class LevelingManager : MonoBehaviour
         int amount = (int)ScoreManager.GetScore() - remove;
 
         targetEXP = DetermineEXPPerLevel(currentLevel);
-        IncreaseEXP(amount);
+        SetEXP(amount);
         levelSlider.value = (float)amount / (float)targetEXP;
     }
 
     int DetermineEXPPerLevel(int level)
     {
-        return (int)(baseEXP * (targetIncrease * level));
+        return (int)(baseEXP * Mathf.Pow(targetIncrease, level - 1));
     }
 
-    public void IncreaseEXP(int incoming)
+    public void SetEXP(int incoming)
     {
         currentEXP = incoming;
         if (currentEXP >= targetEXP)
         {
             IncreaseLevel();
+
+            levelSlider.value = (float)incoming / (float)targetEXP;
         }
     }
 
     public void IncreaseLevel()
     {
-        OnLeveUp?.Invoke();
+        OnLevelUp?.Invoke();
         currentLevel++;
     }
 }

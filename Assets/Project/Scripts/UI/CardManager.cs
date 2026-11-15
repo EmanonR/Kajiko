@@ -9,28 +9,32 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
-        LevelingManager.OnLeveUp += EnableCards;
+        LevelingManager.OnLevelUp += EnableCards;
         DisableCards();
     }
 
     private void OnDestroy()
     {
-        LevelingManager.OnLeveUp -= EnableCards;
+        LevelingManager.OnLevelUp -= EnableCards;
     }
 
     public void CardChosen(int i)
     {
         //Do the upgrade
         DisableCards();
+        GameManager.Instance.InvokeResume();
     }
 
     public void Cancel()
     {
         DisableCards();
+        GameManager.Instance.InvokeResume();
     }
 
     void EnableCards()
     {
+        if (availableCards.Count == 0) return;
+
         foreach (var card in cards)
         {
             card.SetCard(availableCards[Random.Range(0, availableCards.Count)]);
@@ -50,7 +54,5 @@ public class CardManager : MonoBehaviour
         }
 
         skipButton.SetActive(false);
-
-        GameManager.Instance.InvokeResume();
     }
 }

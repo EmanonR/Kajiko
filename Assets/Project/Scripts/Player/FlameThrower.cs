@@ -40,14 +40,19 @@ public class FlameThrower : MonoBehaviour
         shooting = false;
         aiming = false;
         flameParticles.Stop();
-        GameManager.OnGameOver += StopFlame;
         animController = GetComponent<PlayerAnimationController>();
         fuel = GetComponent<FlameThrowerFuel>();
+
+        GameManager.OnGameOver += StopFlame;
+        GameManager.OnPause += StopFlame;
+        GameManager.OnCardSelection += StopFlame;
     }
 
     private void OnDestroy()
     {
         GameManager.OnGameOver -= StopFlame;
+        GameManager.OnPause -= StopFlame;
+        GameManager.OnCardSelection -= StopFlame;
     }
 
     void Start()

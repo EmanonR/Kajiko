@@ -44,8 +44,9 @@ public class GameManager : MonoBehaviour
 
     public void SetCardSelecting()
     {
-        OnCardSelection?.Invoke();
+        Time.timeScale = 0f;
         gameState = GameState.ChoosingCards;
+        OnCardSelection?.Invoke();
     }
 
     private void OnDestroy()
