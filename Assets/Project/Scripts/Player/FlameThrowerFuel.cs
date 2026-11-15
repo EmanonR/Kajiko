@@ -6,35 +6,28 @@ public class FlameThrowerFuel : MonoBehaviour
     public float maxFuel = 100;
     public float currentFuel;
 
-    public static event Action OnFuelChanged;
+    public static event Action<float, float> OnFuelChanged;
 
     private void Start()
     {
+        Refill();
         currentFuel = maxFuel;
     }
 
     public bool Consume(float amount)
     {
-        if (currentFuel < 0)
-        {
+        if (currentFuel <= 0)
             return false;
-        }
+        
 
         currentFuel = Mathf.Clamp(currentFuel - amount, 0, maxFuel);
-        OnFuelChanged?.Invoke();
-        HUD.Instance.UpdateAmmoUI(currentFuel, maxFuel);
+        OnFuelChanged?.Invoke(currentFuel, maxFuel);
         return true;
     }
 
     public void Refill()
     {
         currentFuel = maxFuel;
-        OnFuelChanged?.Invoke();
-        HUD.Instance.UpdateAmmoUI(currentFuel, maxFuel);
-    }
-
-    public float GetFuel()
-    {
-        return currentFuel;
+        OnFuelChanged?.Invoke(currentFuel, maxFuel);
     }
 }

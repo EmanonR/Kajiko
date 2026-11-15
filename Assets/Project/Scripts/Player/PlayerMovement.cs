@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
-    public static bool isPlaying;
 
     public float walkSpeed = 8;
     public float jumpPower = 5, jumpTime = 1f;
@@ -25,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Awake()
     {
-        Time.timeScale = 1f;
         FlameThrower.onAim += OnAimEvent;
         FlameThrower.onShoot += OnShootEvent;
     }

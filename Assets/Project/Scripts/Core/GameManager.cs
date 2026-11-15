@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static GameManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,9 +31,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Time.timeScale = 1f;
+        gameState = GameState.Playing;
         onResume?.Invoke();
 
-        ScoreManager.score = 0;
+        ScoreManager.ResetScore();
 
         Instance = this;
     }

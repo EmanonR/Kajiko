@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using UnityEngine;
+[RequireComponent(typeof(PlayerAnimationController))]
 
+[RequireComponent(typeof(FlameThrowerFuel))]
 public class FlameThrower : MonoBehaviour
 {
 

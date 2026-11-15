@@ -29,11 +29,13 @@ public class HUD : MonoBehaviour
         PausePanel.SetActive(false);
         GameOverPanel.SetActive(false);
         UIPanel.SetActive(true);
+        FlameThrowerFuel.OnFuelChanged += UpdateAmmoUI;
     }
 
     private void OnDestroy()
     {
         GameManager.onPause -= PauseMenu;
+        FlameThrowerFuel.OnFuelChanged -= UpdateAmmoUI;
     }
 
     private void Update()
