@@ -4,7 +4,7 @@ using UnityEngine;
 [DefaultExecutionOrder(-50)]
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
+    public Player player;
 
     public static GameManager Instance;
 
@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public static event Action OnResume;
     public static event Action OnGameOver;
     public static event Action OnCardSelection;
-
 
     public GameState gameState;
 
@@ -39,7 +38,12 @@ public class GameManager : MonoBehaviour
 
         ScoreManager.ResetScore();
 
-        player.GetComponent<Player>().OnDeath += OnDeath;
+        player.OnDeath += OnDeath;
+    }
+    private void OnDestroy()
+    {
+        if (player != null)
+            player.OnDeath -= OnDeath;
     }
 
     public void SetCardSelecting()
@@ -49,10 +53,6 @@ public class GameManager : MonoBehaviour
         OnCardSelection?.Invoke();
     }
 
-    private void OnDestroy()
-    {
-        player.GetComponent<Player>().OnDeath -= OnDeath;
-    }
 
     private void Update()
     {

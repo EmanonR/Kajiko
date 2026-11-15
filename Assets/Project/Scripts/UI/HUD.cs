@@ -51,7 +51,8 @@ public class HUD : MonoBehaviour
         FlameThrowerFuel.OnFuelChanged -= UpdateAmmoUI;
         GameManager.OnGameOver -= GameOverEvent;
         ScoreManager.OnScoreChanged -= UpdateScore;
-        player.OnHealthChanged -= UpdateHP;
+        if (player != null)
+            player.OnHealthChanged -= UpdateHP;
     }
 
     void GameOverEvent()

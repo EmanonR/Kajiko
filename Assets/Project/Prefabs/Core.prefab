@@ -7522,7 +7522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf97d93b2ac83842b0236d2e06c39a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  player: {fileID: 4275208567760133168}
+  player: {fileID: 5473593896495074410}
   gameState: 0
 --- !u!114 &7067992818604210654
 MonoBehaviour:
