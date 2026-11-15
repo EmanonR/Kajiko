@@ -25868,7 +25868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2457874388121650582}
   - component: {fileID: 1560206263709494361}
-  - component: {fileID: 6817704035116043970}
+  - component: {fileID: 515206992441941528}
   m_Layer: 0
   m_Name: Ring of Fire
   m_TagString: Untagged
@@ -25908,26 +25908,20 @@ MonoBehaviour:
   startCount: 2
   emberDistance: 5
   emberPrefab: {fileID: 4396955924107726347, guid: 32bde162ecce6db4a966f5c46c844baf, type: 3}
---- !u!1818360608 &6817704035116043970
-PositionConstraint:
+--- !u!114 &515206992441941528
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9161618521096224945}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 1, z: 0}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 7867137383233033238}
-    weight: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2023b94ee7a903949bc176d20c556851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  followTarget: {fileID: 7867137383233033238}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &9184301779871626534
 GameObject:
   m_ObjectHideFlags: 0
