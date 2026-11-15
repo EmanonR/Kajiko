@@ -52,7 +52,6 @@ public class LevelingManager : MonoBehaviour
         {
             IncreaseLevel();
             UpdateScore();
-            levelSlider.value = (float)incoming / (float)targetEXP;
         }
     }
 

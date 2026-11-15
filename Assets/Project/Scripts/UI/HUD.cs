@@ -63,7 +63,7 @@ public class HUD : MonoBehaviour
 
     void UpdateHP(float current, float max)
     {
-        hpText.text = $"{current:f0}/{max}";
+        hpText.text = $"{current:f0}/{max:f0}";
     }
 
     public void UpdateAmmoUI(float current, float max)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RingOfFireScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class RingOfFireScript : MonoBehaviour
 
     public GameObject emberPrefab;
 
+    float angle;
+
     private void Start()
     {
         SpawnEmbers(startCount, emberDistance);
@@ -16,7 +19,8 @@ public class RingOfFireScript : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+        angle += rotationSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
 
     public void SetEmberCount(int count)

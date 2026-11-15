@@ -8,7 +8,7 @@ public class Entity : MonoBehaviour
 
     [HideInInspector]
     public float currentHP = 50;
-    bool isDead;
+    protected bool isDead;
 
     public event Action<float, float> OnHealthChanged;
     public event Action OnDeath;

@@ -14,6 +14,8 @@ public class NPC : Entity
 
     public override void TakeDamage(float incoming)
     {
+        if (isDead) return;
+
         ScoreManager.AddScore(incoming / 2);
 
         base.TakeDamage(incoming);
