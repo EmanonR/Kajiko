@@ -27,6 +27,7 @@ public class Entity : MonoBehaviour
     {
         if (isDead) return;
 
+        ScoreManager.AddScore(incoming * Time.deltaTime / 2);
         currentHP = Mathf.Max(currentHP - incoming, 0);
 
         OnHealthChanged?.Invoke(currentHP, maxHP);

@@ -177,7 +177,6 @@ public class FlameThrower : MonoBehaviour
             if (hit.collider.TryGetComponent(out NPC enemy))
             {
                 enemy.TakeDamage(damagePerSecond * Time.deltaTime);
-                ScoreManager.AddScore(damagePerSecond * Time.deltaTime / 2);
 
                 print("Hit " + enemy.name);
             }

@@ -3788,6 +3788,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b940d24c147476c4fa7697ea457a3924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Card
+--- !u!1 &521918521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521918522}
+  - component: {fileID: 521918523}
+  - component: {fileID: 521918524}
+  m_Layer: 0
+  m_Name: Ring of Fire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &521918522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521918521}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 473170951}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521918523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521918521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b26fc8da11d4674aa0bfcef59d9930c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  rotationSpeed: 75
+  startCount: 2
+  emberDistance: 5
+  emberPrefab: {fileID: 4396955924107726347, guid: 32bde162ecce6db4a966f5c46c844baf, type: 3}
+--- !u!1818360608 &521918524
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521918521}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 1, z: 0}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 893800621}
+    weight: 1
 --- !u!43 &532009058
 Mesh:
   m_ObjectHideFlags: 0
@@ -6787,6 +6856,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &893800621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7867137383233033238, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+  m_PrefabInstance: {fileID: 118109287582067264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &901798429
 Mesh:
   m_ObjectHideFlags: 0
@@ -17022,6 +17096,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4526531485518776087, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1506651131}
+    - targetCorrespondingSourceObject: {fileID: 4526531485518776087, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 521918522}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
 --- !u!1001 &1654759010070211190
@@ -17215,6 +17292,22 @@ PrefabInstance:
     - target: {fileID: 7080567274325208665, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 673.95996
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 133.1915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 648.58496
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 25.601501
       objectReference: {fileID: 0}
     - target: {fileID: 7581830400745893098, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_AnchorMax.y
