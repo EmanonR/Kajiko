@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FlameThrower : MonoBehaviour
@@ -188,7 +190,6 @@ public class FlameThrower : MonoBehaviour
         float pitch = Mathf.Clamp(Mathf.DeltaAngle(0f, cam.localEulerAngles.x), -maxPitch, maxPitch);
         return Quaternion.AngleAxis(pitch, transform.right) * transform.forward;
     }
-
 
     private void OnDrawGizmosSelected()
     {

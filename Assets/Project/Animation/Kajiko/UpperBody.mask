@@ -13,11 +13,15 @@ AvatarMask:
     m_Weight: 1
   - m_Path: Armature
     m_Weight: 1
-  - m_Path: Armature/Gun
+  - m_Path: Armature/Gun.001
     m_Weight: 1
-  - m_Path: Armature/Gun/Loaded
+  - m_Path: Armature/Gun.001/Gun
     m_Weight: 1
-  - m_Path: Armature/Gun/Loaded/Loaded_end
+  - m_Path: Armature/Gun.001/Gun/Gun_end
+    m_Weight: 1
+  - m_Path: Armature/Gun.001/Loaded
+    m_Weight: 1
+  - m_Path: Armature/Gun.001/Loaded/Loaded_end
     m_Weight: 1
   - m_Path: Armature/Hips
     m_Weight: 0
@@ -76,21 +80,21 @@ AvatarMask:
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head
     m_Weight: 1
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.L/Bang2.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.L/Bang2.L/Bang3.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.L/Bang2.L/Bang3.L/Bang3.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.R/Bang2.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.R/Bang2.R/Bang3.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bang1.R/Bang2.R/Bang3.R/Bang3.R_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bow
     m_Weight: 1
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bow/Bow.L
@@ -98,33 +102,33 @@ AvatarMask:
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bow/Bow.L/Bow.L_end
     m_Weight: 1
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bow/Bow.R
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/Bow/Bow.R/Bow.R_end
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.L/TwinTail1.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.L/TwinTail1.L/TwinTail2.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.L/TwinTail1.L/TwinTail2.L/TwinTail3.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.L/TwinTail1.L/TwinTail2.L/TwinTail3.L/TwinTail4.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.L/TwinTail1.L/TwinTail2.L/TwinTail3.L/TwinTail4.L/TwinTail4.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.R/TwinTail1.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.R/TwinTail1.R/TwinTail2.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.R/TwinTail1.R/TwinTail2.R/TwinTail3.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.R/TwinTail1.R/TwinTail2.R/TwinTail3.R/TwinTail4.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Neck/Head/TwinTail0.R/TwinTail1.R/TwinTail2.R/TwinTail3.R/TwinTail4.R/TwinTail4.R_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Hips/Stomach/Chest/Shoulder.L
     m_Weight: 1
   - m_Path: Armature/Hips/Stomach/Chest/Shoulder.L/UpperArm.L
