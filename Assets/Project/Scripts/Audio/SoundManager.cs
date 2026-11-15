@@ -44,7 +44,19 @@ public class SoundManager : MonoBehaviour
             Destroy(this);
             return;
         }
+
+        GameManager.onPause += SnapShotPaused;
+        GameManager.onResume += SnapShotResume;
     }
+
+    private void OnDestroy()
+    {
+        GameManager.onPause -= SnapShotPaused;
+        GameManager.onResume -= SnapShotResume;
+    }
+
+    public void SnapShotPaused() => SwapSnapShot(true);
+    public void SnapShotResume() => SwapSnapShot(false);
 
     public void SwapSnapShot(bool paused)
     {

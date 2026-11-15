@@ -1,17 +1,13 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class FlameThrower : MonoBehaviour
 {
 
     [Header("Stats")]
-    public float DPS = 50f;
-    public float FPS = 5f;
-    public float maxAmmo = 100;
-    public float currentAmmo;
+    public float damagePerSecond = 50f;
+    public float fuelPerSecond = 5f;
 
     [Header("Setup")]
     public ParticleSystem flameParticles;
@@ -35,6 +31,7 @@ public class FlameThrower : MonoBehaviour
     bool aiming;
     bool reloading;
     PlayerAnimationController animController;
+    FlameThrowerFuel fuel;
 
     private void Awake()
     {
@@ -43,6 +40,7 @@ public class FlameThrower : MonoBehaviour
         flameParticles.Stop();
         GameManager.onGameOver += StopFlame;
         animController = GetComponent<PlayerAnimationController>();
+        fuel = GetComponent<FlameThrowerFuel>();
     }
 
     private void OnDestroy()
@@ -52,14 +50,12 @@ public class FlameThrower : MonoBehaviour
 
     void Start()
     {
-        currentAmmo = maxAmmo;
         audioSource.clip = flameEndClip; 
     }
 
     private void Update()
     {
-        if (GameManager.Instance.GAMEOVER) return;
-        if (GameManager.Instance.paused) return;
+        if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
 
         HandleShoot();
         HandleAim();
@@ -70,7 +66,7 @@ public class FlameThrower : MonoBehaviour
     {
         if (reloading) return;
 
-        if (currentAmmo > 0 && KeyBinds.Instance.shootInput.IsPressed())
+        if (fuel.currentFuel > 0 && KeyBinds.Instance.shootInput.IsPressed())
         {
             if (!shooting)
             {
@@ -131,12 +127,9 @@ public class FlameThrower : MonoBehaviour
         animController.PlayAnimation("Reload");
 
         yield return null;
-        //AnimatorStateInfo stateInfo = animController.animator.GetCurrentAnimatorStateInfo(1);
-        //yield return new WaitForSeconds((1f - stateInfo.normalizedTime) * stateInfo.length);
         yield return new WaitForSeconds(animController.GetClipLength(1));
 
-        currentAmmo = maxAmmo;
-        HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
+        fuel.Refill();
 
         reloading = false;
     }
@@ -174,15 +167,14 @@ public class FlameThrower : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out NPC enemy))
             {
-                enemy.TakeDamage(DPS * Time.deltaTime);
-                ScoreManager.AddScore(DPS * Time.deltaTime / 2);
+                enemy.TakeDamage(damagePerSecond * Time.deltaTime);
+                ScoreManager.AddScore(damagePerSecond * Time.deltaTime / 2);
 
                 print("Hit " + enemy.name);
             }
         }
 
-        currentAmmo -= FPS * Time.deltaTime;
-        HUD.Instance.UpdateAmmoUI(currentAmmo, maxAmmo);
+        fuel.Consume(fuelPerSecond * Time.deltaTime);
     }
 
     Vector3 GetAimDirection()

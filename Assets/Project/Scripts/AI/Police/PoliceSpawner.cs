@@ -13,8 +13,7 @@ public class PoliceSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.GAMEOVER) return;
-        if (GameManager.Instance.paused) return;
+        if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
 
         int adjustedSpawnCount = defaultMaxSpawnCount + (int)(GameManager.Instance.timeSinceAlert / 30);
 

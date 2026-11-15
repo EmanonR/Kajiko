@@ -7,18 +7,19 @@ public class CursorLock : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         GameManager.onPause += EventPause;
         GameManager.onResume += EventResume;
+        GameManager.onGameOver += OnGameOver;
     }
 
     private void OnDestroy()
     {
         GameManager.onPause -= EventPause;
         GameManager.onResume -= EventResume;
+        GameManager.onGameOver -= OnGameOver;
     }
 
-    private void Update()
+    void OnGameOver()
     {
-        if (GameManager.Instance.GAMEOVER)
-            Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void EventPause()

@@ -38,7 +38,7 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.GAMEOVER)
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
         {
             PausePanel.SetActive(false);
             UIPanel.SetActive(false);

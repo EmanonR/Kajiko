@@ -38,8 +38,7 @@ public class CameraController : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.GAMEOVER) return;
-            if (GameManager.Instance.paused) return;
+            if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
         }
 
         if (followObject == null) return;

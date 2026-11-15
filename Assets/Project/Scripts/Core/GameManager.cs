@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
+using static GameManager;
 
 public class GameManager : MonoBehaviour
 {
-    public bool paused; 
-    public bool GAMEOVER;
     public float timeSinceAlert = 0;
     public GameObject player;
 
@@ -16,6 +15,15 @@ public class GameManager : MonoBehaviour
 
     public bool policeAlerted = false;
 
+    public GameState gameState;
+
+    public enum GameState
+    {
+        Playing,
+        Paused,
+        GameOver
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -24,7 +32,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        paused = false;
         onResume?.Invoke();
 
         ScoreManager.score = 0;
@@ -33,12 +40,11 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (GAMEOVER) return;
-        if (paused) return;
+        if (gameState != GameState.Playing) return;
 
         if (Player.dead)
         {
-            GAMEOVER = true;
+            gameState = GameState.GameOver;
             onGameOver?.Invoke();
             return;
         }
@@ -48,18 +54,16 @@ public class GameManager : MonoBehaviour
 
         if (KeyBinds.Instance.pauseInput.triggered)
         {
-            paused = true;
+            gameState = GameState.Paused;
             Time.timeScale = 0f;
-            SoundManager.Instance.SwapSnapShot(paused);
             onPause?.Invoke();
         }
     }
 
     public void InvokeResume()
     {
-        paused = false;
+        gameState = GameState.Playing;
         Time.timeScale = 1f;
-        SoundManager.Instance.SwapSnapShot(paused);
         onResume?.Invoke();
     }
 

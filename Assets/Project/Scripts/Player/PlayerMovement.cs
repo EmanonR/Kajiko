@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
+    public static bool isPlaying;
+
     public float walkSpeed = 8;
     public float jumpPower = 5, jumpTime = 1f;
     public float turnSmoothTime = .1f;
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Awake()
     {
+        Time.timeScale = 1f;
         FlameThrower.onAim += OnAimEvent;
         FlameThrower.onShoot += OnShootEvent;
     }
@@ -35,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.GAMEOVER) return;
-        if (GameManager.Instance.paused) return;
+        if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
 
         currentSpeed = KeyBinds.Instance.sprintInput.IsPressed() ? PlayerStats.runSpeed : walkSpeed;
 
@@ -59,7 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (GameManager.Instance.GAMEOVER) return;
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver) return;
+
         Vector2 moveInp = KeyBinds.Instance.movementInput.ReadValue<Vector2>();
 
         if (moveInp != Vector2.zero || aiming || shooting)
