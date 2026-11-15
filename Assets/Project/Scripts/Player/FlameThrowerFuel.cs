@@ -11,7 +11,6 @@ public class FlameThrowerFuel : MonoBehaviour
     private void Start()
     {
         Refill();
-        currentFuel = maxFuel;
     }
 
     public bool Consume(float amount)

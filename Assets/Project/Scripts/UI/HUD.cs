@@ -30,25 +30,28 @@ public class HUD : MonoBehaviour
         GameOverPanel.SetActive(false);
         UIPanel.SetActive(true);
         FlameThrowerFuel.OnFuelChanged += UpdateAmmoUI;
+        GameManager.onGameOver += GameOverEvent;
+        ScoreManager.OnScoreChanged += UpdateScore;
     }
 
     private void OnDestroy()
     {
         GameManager.onPause -= PauseMenu;
         FlameThrowerFuel.OnFuelChanged -= UpdateAmmoUI;
+        GameManager.onGameOver -= GameOverEvent;
+        ScoreManager.OnScoreChanged -= UpdateScore;
     }
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
-        {
-            PausePanel.SetActive(false);
-            UIPanel.SetActive(false);
-            GameOverPanel.SetActive(true);
-            return;
-        }
-        UpdateScore();
         UpdateHP();
+    }
+
+    void GameOverEvent()
+    {
+        PausePanel.SetActive(false);
+        UIPanel.SetActive(false);
+        GameOverPanel.SetActive(true);
     }
 
     void UpdateHP()
