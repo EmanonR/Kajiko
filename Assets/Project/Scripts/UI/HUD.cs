@@ -34,6 +34,11 @@ public class HUD : MonoBehaviour
         ScoreManager.OnScoreChanged += UpdateScore;
     }
 
+    private void Start()
+    {
+        UpdateScore();
+    }
+
     private void OnDestroy()
     {
         GameManager.onPause -= PauseMenu;
