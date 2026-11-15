@@ -26,12 +26,12 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        FlameThrower.onAim += AimOverride;
+        FlameThrower.OnAim += AimOverride;
     }
 
     private void OnDestroy()
     {
-        FlameThrower.onAim -= AimOverride;
+        FlameThrower.OnAim -= AimOverride;
     }
 
     private void LateUpdate()

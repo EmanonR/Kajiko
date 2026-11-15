@@ -22,24 +22,26 @@ public class Entity : MonoBehaviour
     {
         if (isDead) return;
 
-        currentHP -= incoming;
-
-        if (currentHP <= 0 ) 
-            Death();
+        currentHP = Mathf.Max(currentHP - incoming, 0);
 
         OnHealthChanged?.Invoke(currentHP, maxHP);
+
+        if (currentHP <= 0)
+        {
+            isDead = true;
+            OnDeath?.Invoke();
+            Death();
+        }
     }
 
     public void Heal(float incoming)
     {
-        currentHP = Mathf.Clamp(currentHP + incoming, 0, maxHP);
+        currentHP = Mathf.Max(currentHP + incoming, 0);
         OnHealthChanged?.Invoke(currentHP, maxHP);
     }
 
     public virtual void Death()
     {
-        OnDeath?.Invoke();
-        isDead = true;
         Destroy(gameObject);
     }
 }

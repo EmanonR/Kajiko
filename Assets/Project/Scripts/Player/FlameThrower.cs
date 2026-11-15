@@ -26,8 +26,8 @@ public class FlameThrower : MonoBehaviour
     public AudioClip flameClip;
     public AudioClip flameEndClip;
 
-    public static event Action<bool> onAim;
-    public static event Action<bool> onShoot;
+    public static event Action<bool> OnAim;
+    public static event Action<bool> OnShoot;
 
     bool shooting;
     bool aiming;
@@ -68,14 +68,12 @@ public class FlameThrower : MonoBehaviour
     {
         if (reloading) return;
 
-        if (fuel.currentFuel == fuel.maxFuel) return;
-
         if (fuel.currentFuel > 0 && KeyBinds.Instance.shootInput.IsPressed())
         {
             if (!shooting)
             {
                 flameParticles.Play();
-                onShoot?.Invoke(true);
+                OnShoot?.Invoke(true);
 
                 if (audioSource.clip != flameClip)
                 {
@@ -101,14 +99,14 @@ public class FlameThrower : MonoBehaviour
         if (KeyBinds.Instance.aimInput.IsPressed())
         {
             if (!aiming)
-                onAim?.Invoke(true);
+                OnAim?.Invoke(true);
 
             aiming = true;
         }
         else
         {
             if (aiming)
-                onAim?.Invoke(false);
+                OnAim?.Invoke(false);
 
             aiming = false;
         }
@@ -117,6 +115,8 @@ public class FlameThrower : MonoBehaviour
     void HandleReload()
     {
         if (reloading) return;
+
+        if (fuel.currentFuel == fuel.maxFuel) return;
 
         if (KeyBinds.Instance.reloadInput.IsPressed())
         {
@@ -143,7 +143,7 @@ public class FlameThrower : MonoBehaviour
         if (shooting)
         {
             flameParticles.Stop();
-            onShoot?.Invoke(false);
+            OnShoot?.Invoke(false);
             audioSource.clip = flameEndClip;
             audioSource.loop = false;
             audioSource.Play();
@@ -156,7 +156,7 @@ public class FlameThrower : MonoBehaviour
     {
         StopShooting();
 
-        if (aiming) onAim?.Invoke(false);
+        if (aiming) OnAim?.Invoke(false);
         aiming = false;
     }
 

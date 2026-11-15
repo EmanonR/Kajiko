@@ -4,25 +4,27 @@ public class DropOnDeath : MonoBehaviour
 {
     public GameObject dropPrefab;
     [Range(0, 100)]
-    public float dropChange;
+    public float dropChance = 15;
 
     public Entity entity;
 
-    private void Start()
+    private void Awake()
     {
         entity = transform.GetComponent<Entity>();
 
-        entity.OnDeath += DropDeath;
+        if (entity != null)
+            entity.OnDeath += DropDeath;
     }
 
     private void OnDestroy()
     {
-        entity.OnDeath -= DropDeath;
+        if (entity != null)
+            entity.OnDeath -= DropDeath;
     }
 
     public void DropDeath()
     {
-        if (Random.Range(0, 100) < dropChange * PlayerStats.Luck)
+        if (Random.Range(0, 100) < dropChance * PlayerStats.Luck)
             Instantiate(dropPrefab, transform.position, Quaternion.identity);
     }
 }

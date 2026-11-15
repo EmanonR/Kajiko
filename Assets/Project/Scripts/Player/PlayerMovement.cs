@@ -24,14 +24,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Awake()
     {
-        FlameThrower.onAim += OnAimEvent;
-        FlameThrower.onShoot += OnShootEvent;
+        FlameThrower.OnAim += OnAimEvent;
+        FlameThrower.OnShoot += OnShootEvent;
     }
 
     private void OnDestroy()
     {
-        FlameThrower.onAim -= OnAimEvent;
-        FlameThrower.onShoot -= OnShootEvent;
+        FlameThrower.OnAim -= OnAimEvent;
+        FlameThrower.OnShoot -= OnShootEvent;
     }
 
     private void Update()

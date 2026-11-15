@@ -1,14 +1,7 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public class Player : Entity
 {
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     private void Update()
     {
         foreach (Interactable interactable in Interactable.interactables)

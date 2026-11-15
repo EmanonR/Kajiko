@@ -1785,6 +1785,7 @@ Transform:
   m_Children:
   - {fileID: 6438808211198875319}
   - {fileID: 8191445520809362630}
+  - {fileID: 3693125743201014928}
   - {fileID: 5896731688384829006}
   - {fileID: 3860918706025406999}
   - {fileID: 3526040124217792621}
@@ -6409,7 +6410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e16978195cfa2e458cb2d63028a1b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  name: Kajiko
+  displayName: Jhon
   maxHP: 35
   currentHP: 35
 --- !u!114 &7888957983407165530
@@ -7519,9 +7520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf97d93b2ac83842b0236d2e06c39a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  timeSinceAlert: 0
-  player: {fileID: 0}
-  policeAlerted: 0
+  player: {fileID: 4275208567760133168}
   gameState: 0
 --- !u!114 &7067992818604210654
 MonoBehaviour:
@@ -19269,6 +19268,51 @@ Transform:
   - {fileID: 6894442272098932951}
   m_Father: {fileID: 2426207284439520716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6680376571525151622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3693125743201014928}
+  - component: {fileID: 1522905469286428253}
+  m_Layer: 0
+  m_Name: HeatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3693125743201014928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680376571525151622}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4526531485518776087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522905469286428253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680376571525151622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547f13305ef7a0f42a447ea568e4867d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  timeSinceAlert: 0
 --- !u!1 &6749985344278314402
 GameObject:
   m_ObjectHideFlags: 0

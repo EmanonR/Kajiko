@@ -25,8 +25,6 @@ public class HUD : MonoBehaviour
 
         Instance = this;
 
-        player = GameManager.Instance.player.GetComponent<Player>();
-
         GameManager.OnPause += PauseMenu;
         PausePanel.SetActive(false);
         GameOverPanel.SetActive(false);
@@ -38,6 +36,9 @@ public class HUD : MonoBehaviour
 
     private void Start()
     {
+        player = GameManager.Instance.player.GetComponent<Player>();
+        player.OnHealthChanged += UpdateHP;
+
         UpdateScore();
     }
 
@@ -47,11 +48,7 @@ public class HUD : MonoBehaviour
         FlameThrowerFuel.OnFuelChanged -= UpdateAmmoUI;
         GameManager.OnGameOver -= GameOverEvent;
         ScoreManager.OnScoreChanged -= UpdateScore;
-    }
-
-    private void Update()
-    {
-        UpdateHP();
+        player.OnHealthChanged -= UpdateHP;
     }
 
     void GameOverEvent()
@@ -61,9 +58,9 @@ public class HUD : MonoBehaviour
         GameOverPanel.SetActive(true);
     }
 
-    void UpdateHP()
+    void UpdateHP(float current, float max)
     {
-        hpText.text = "HP: " + player.currentHP.ToString("f0");
+        hpText.text = $"HP: {current.ToString("f0")}/{max}";
     }
 
     public void UpdateAmmoUI(float current, float max)

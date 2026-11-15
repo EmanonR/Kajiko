@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[DefaultExecutionOrder(-50)]
 public class GameManager : MonoBehaviour
 {
     public GameObject player;

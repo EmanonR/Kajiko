@@ -21,15 +21,15 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Awake()
     {
-        FlameThrower.onShoot += onShoot;
-        FlameThrower.onAim += onAim;
+        FlameThrower.OnShoot += onShoot;
+        FlameThrower.OnAim += onAim;
         GameManager.OnGameOver += OnGameOver;
     }
 
     private void OnDestroy()
     {
-        FlameThrower.onShoot -= onShoot;
-        FlameThrower.onAim -= onAim;
+        FlameThrower.OnShoot -= onShoot;
+        FlameThrower.OnAim -= onAim;
         GameManager.OnGameOver -= OnGameOver;
     }
 

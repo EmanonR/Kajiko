@@ -5033,6 +5033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6535751771914539773}
   - component: {fileID: 4500743691817766260}
+  - component: {fileID: 227600526959091441}
   - component: {fileID: 7505293227590861038}
   - component: {fileID: 7855390835001593825}
   - component: {fileID: 7918212433691098275}
@@ -5073,20 +5074,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5faf5cba6ecfe14bb5346a77a119ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTree
-  name: PoPo
+  displayName: Jhon
   maxHP: 50
   currentHP: 50
   player: {fileID: 0}
   visionRange: 15
   attackRange: 5
   interactRange: 1
-  healingPrefab: {fileID: 5420208690982140019, guid: 1c7da96deb358ee40a0eefe7648cb047, type: 3}
   turnSpeed: 0.15
   bulletDamage: 5
   bullet: {fileID: 6755391406320876035, guid: 8ebb3b2e9d1d85f49ae8ee909d7bb3a6, type: 3}
   muzzle: {fileID: 6268294952878696461}
   animator: {fileID: 2048584937627039848}
   bulletSource: {fileID: 827712042329334510}
+--- !u!114 &227600526959091441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971856570570843316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35200f644c47eaa46880f9b60e72ae25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropOnDeath
+  dropPrefab: {fileID: 5420208690982140019, guid: 1c7da96deb358ee40a0eefe7648cb047, type: 3}
+  dropChange: 15
+  entity: {fileID: 0}
 --- !u!114 &7505293227590861038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5423,6 +5438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   stepSource: {fileID: 2480201239678133645}
+  reloadParticles: []
+  reloadedParticle: {fileID: 0}
 --- !u!4 &5372273123020530194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b26c01a7724e5444bc37cdcb75319e0, type: 3}
