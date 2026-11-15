@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class Phone : MonoBehaviour
     List<SongListItem> songsList = new();
 
     int currentSelectedSong = 0;
+    public static event Action OnMusicChanged;
 
     private void Awake()
     {
@@ -74,7 +76,6 @@ public class Phone : MonoBehaviour
         {
             currentSelectedSong--;
 
-
             if (currentSelectedSong < 0)
                 currentSelectedSong = MusicPlaylist.Instance.GetPlayList().Count - 1;
         }
@@ -109,6 +110,8 @@ public class Phone : MonoBehaviour
         songsList[currentSelectedSong].UpdatePlaying(true);
 
         SoundManager.Instance.SwapBGM(MusicPlaylist.Instance.GetSongAtIndex(currentSelectedSong));
+
+        OnMusicChanged?.Invoke();
     }
 
     void PhoneFlip()

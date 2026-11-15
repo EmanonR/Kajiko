@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static event Action OnPause;
     public static event Action OnResume;
     public static event Action OnGameOver;
+    public static event Action OnCardSelection;
 
 
     public GameState gameState;
@@ -19,7 +20,8 @@ public class GameManager : MonoBehaviour
     {
         Playing,
         Paused,
-        GameOver
+        GameOver,
+        ChoosingCards
     }
 
     private void Awake()
@@ -38,6 +40,12 @@ public class GameManager : MonoBehaviour
         ScoreManager.ResetScore();
 
         player.GetComponent<Player>().OnDeath += OnDeath;
+    }
+
+    public void SetCardSelecting()
+    {
+        OnCardSelection?.Invoke();
+        gameState = GameState.ChoosingCards;
     }
 
     private void OnDestroy()

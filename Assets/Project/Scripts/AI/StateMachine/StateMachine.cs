@@ -6,6 +6,7 @@ public class StateMachine : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
         RunStateMachine();
     }
 

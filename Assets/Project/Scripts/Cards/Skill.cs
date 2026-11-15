@@ -4,4 +4,6 @@ using UnityEngine;
 public class Skill : ScriptableObject
 {
     public string flag;
+    public string description;
+    public Sprite image;
 }

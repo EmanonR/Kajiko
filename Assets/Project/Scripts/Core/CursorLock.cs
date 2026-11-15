@@ -8,6 +8,7 @@ public class CursorLock : MonoBehaviour
         GameManager.OnPause += EventPause;
         GameManager.OnResume += EventResume;
         GameManager.OnGameOver += OnGameOver;
+        GameManager.OnCardSelection += OnCard;
     }
 
     private void OnDestroy()
@@ -15,6 +16,12 @@ public class CursorLock : MonoBehaviour
         GameManager.OnPause -= EventPause;
         GameManager.OnResume -= EventResume;
         GameManager.OnGameOver -= OnGameOver;
+        GameManager.OnCardSelection -= OnCard;
+    }
+
+    void OnCard()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void OnGameOver()
