@@ -18,6 +18,11 @@ public class Entity : MonoBehaviour
         currentHP = maxHP;
     }
 
+    private void Start()
+    {
+        OnHealthChanged?.Invoke(currentHP, maxHP);
+    }
+
     public void TakeDamage(float incoming)
     {
         if (isDead) return;
@@ -36,7 +41,7 @@ public class Entity : MonoBehaviour
 
     public void Heal(float incoming)
     {
-        currentHP = Mathf.Max(currentHP + incoming, 0);
+        currentHP = Mathf.Clamp(currentHP + incoming, 0, maxHP);
         OnHealthChanged?.Invoke(currentHP, maxHP);
     }
 

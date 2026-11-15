@@ -32,13 +32,14 @@ public class HUD : MonoBehaviour
         FlameThrowerFuel.OnFuelChanged += UpdateAmmoUI;
         GameManager.OnGameOver += GameOverEvent;
         ScoreManager.OnScoreChanged += UpdateScore;
+
+        player = GameManager.Instance.player.GetComponent<Player>();
+        player.OnHealthChanged += UpdateHP;
+
     }
 
     private void Start()
     {
-        player = GameManager.Instance.player.GetComponent<Player>();
-        player.OnHealthChanged += UpdateHP;
-
         UpdateScore();
     }
 
@@ -60,7 +61,7 @@ public class HUD : MonoBehaviour
 
     void UpdateHP(float current, float max)
     {
-        hpText.text = $"HP: {current.ToString("f0")}/{max}";
+        hpText.text = $"HP: {current:f0}/{max}";
     }
 
     public void UpdateAmmoUI(float current, float max)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class MusicPlaylist : MonoBehaviour
     public int currentSongIndex;
 
     public static MusicPlaylist Instance;
+
 
     private void Awake()
     {
