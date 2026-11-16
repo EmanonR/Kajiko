@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52482bac919b6c644af966746e31d5d5, type: 3}
-  m_Name: Ring of Fire
-  m_EditorClassIdentifier: Assembly-CSharp::Skill
-  flag: ROF
-  description: Spawns embers that float around you
+  m_Script: {fileID: 11500000, guid: d2eb5feda2130ee4eba6f4f8a8f54aaa, type: 3}
+  m_Name: Ring of fire
+  m_EditorClassIdentifier: Assembly-CSharp::RingOfFire
   image: {fileID: 0}
+  displayName: Ring of Fire
+  descriptions: Aquire the skill
+  has: 0
+  myLevel: 0

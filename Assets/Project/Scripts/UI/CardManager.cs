@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
-    public List<Skill> availableCards = new();
     public List<Card> cards = new();
     public GameObject skipButton;
 
@@ -22,6 +21,7 @@ public class CardManager : MonoBehaviour
     {
         //Do the upgrade
         DisableCards();
+        cards[i].skill.Aquire();
         GameManager.Instance.InvokeResume();
     }
 
@@ -33,12 +33,23 @@ public class CardManager : MonoBehaviour
 
     void EnableCards()
     {
-        if (availableCards.Count == 0) return;
+        List<Skill> chosen = SkillManager.Instance.GetRan3Skills();
 
-        foreach (var card in cards)
+        if (chosen.Count == 0) return;
+
+        for (int i = 0; i < cards.Count; i++)
         {
-            card.SetCard(availableCards[Random.Range(0, availableCards.Count)]);
-            card.EnableCard();
+            if (i >= chosen.Count)
+            {
+                cards[i].DisableCard();
+                cards[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                cards[i].gameObject.SetActive(true);
+                cards[i].SetCard(chosen[i]); 
+                cards[i].EnableCard();
+            }
         }
 
         skipButton.SetActive(true);

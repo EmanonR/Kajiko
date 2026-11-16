@@ -3,17 +3,22 @@ using UnityEngine;
 public class RingOfFireScript : MonoBehaviour
 {
     public int damageAmount = 5; 
-    public float rotationSpeed = 60f;
-    public int startCount = 2;
-    public float emberDistance = 5f;
 
     public GameObject emberPrefab;
 
     float angle;
+    float rotationSpeed;
+    float collisionSize;
+    int hitLimit;
 
-    private void Start()
+    private void Awake()
     {
-        SpawnEmbers(startCount, emberDistance);
+        RingOfFire.OnChanged += SetEmberCount;
+    }
+
+    private void OnDestroy()
+    {
+        RingOfFire.OnChanged -= SetEmberCount;
     }
 
     private void Update()
@@ -22,12 +27,14 @@ public class RingOfFireScript : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
 
-    public void SetEmberCount(int count)
+    public void SetEmberCount(int count, int hitLimit, float distance, float speed, float collisionSize)
     {
         foreach (Transform child in transform)
             Destroy(child.gameObject);
 
-        SpawnEmbers(count, emberDistance);
+        rotationSpeed = speed;
+        this.collisionSize = collisionSize;
+        SpawnEmbers(count, distance);
     }
 
     public void SpawnEmbers(int amount, float distance)
@@ -44,6 +51,8 @@ public class RingOfFireScript : MonoBehaviour
             GameObject ember = Instantiate(emberPrefab, transform);
             ember.transform.localPosition = offset;
             ember.GetComponent<DealDamageToNPC>().damage = damageAmount;
+            ember.GetComponent<DealDamageToNPC>().hitCap = hitLimit;
+            ember.GetComponent<SphereCollider>().radius = collisionSize;
         }
     }
 }

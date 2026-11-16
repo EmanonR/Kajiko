@@ -1,9 +1,17 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Skill", menuName ="Skill")]
-public class Skill : ScriptableObject
+public abstract class Skill : ScriptableObject
 {
-    public string flag;
-    public string description;
     public Sprite image;
+    public string displayName;
+    public string description = "Aquire the skill";
+
+    public bool has;
+    public int myLevel;
+
+    public virtual void Aquire()
+    {
+        myLevel++;
+        has = true;
+    }
 }
