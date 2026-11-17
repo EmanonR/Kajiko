@@ -30,23 +30,23 @@ public class SkillManager : MonoBehaviour
 
     public List<Skill> GetRan3Skills()
     {
-        List<int> numsChosen = new();
+        List<int> numsCompared = new();
         List<Skill> list = new();
 
         foreach (var skill in skills)
         {
-            if (numsChosen.Count >= skills.Count)
+            if (numsCompared.Count >= skills.Count)
                 break;
 
-            if (numsChosen.Count >= 3)
+            if (list.Count >= 3)
                 break;
 
-            int r = GetRanIntExcluded(numsChosen, 0, skills.Count);
+            int r = GetRanIntExcluded(numsCompared, 0, skills.Count);
+            numsCompared.Add(r);
 
             if (skills[r].done) continue;
 
             list.Add(skills[r]);
-            numsChosen.Add(r);
         }
 
         return list;

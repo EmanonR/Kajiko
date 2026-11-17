@@ -4,11 +4,12 @@ public abstract class Skill : ScriptableObject
 {
     public Sprite image;
     public string displayName;
-    public string description = "Aquire the skill";
+    
 
-    public bool has;
-    public bool done;
-    public int myLevel;
+    [HideInInspector] public bool has;
+    [HideInInspector] public bool done;
+    [HideInInspector] public int myLevel;
+    [HideInInspector] public string description = "Aquire the skill";
 
     public virtual void Aquire()
     {
