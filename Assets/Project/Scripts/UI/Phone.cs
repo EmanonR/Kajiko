@@ -20,12 +20,18 @@ public class Phone : MonoBehaviour
     List<SongListItem> songsList = new();
 
     int currentSelectedSong = 0;
-    public static event Action OnMusicChanged;
 
     private void Awake()
     {
         IsOpen = false;
         PhoneFlip();
+
+        MusicPlaylist.OnSongChanged += SongChanged;
+    }
+
+    private void OnDestroy()
+    {
+        MusicPlaylist.OnSongChanged -= SongChanged;
     }
 
     private void Start()
@@ -35,21 +41,10 @@ public class Phone : MonoBehaviour
         UpdateSelected();
     }
 
-    void CreateList()
-    {
-        List<AudioClip> clips = MusicPlaylist.Instance.GetPlayList();
-
-        foreach (AudioClip clip in clips)
-        {
-            SongListItem con = Instantiate(SongListPrefab, content).GetComponent<SongListItem>();
-
-            con.UpdateSong(clip.name);
-            songsList.Add(con);
-        }
-    }
-
     private void Update()
     {
+        if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
+
         if (KeyBinds.Instance.phoneOpenInput.triggered)
         {
             open = !open;
@@ -83,6 +78,32 @@ public class Phone : MonoBehaviour
         UpdateSelected();
     }
 
+
+    void SongChanged(int index)
+    {
+        if (index >= songsList.Count) return;
+
+        foreach (SongListItem song in songsList)
+            song.UpdatePlaying(false);
+
+        songsList[index].UpdatePlaying(true);
+    }
+
+    void CreateList()
+    {
+        List<AudioClip> clips = MusicPlaylist.Instance.GetPlayList();
+
+        foreach (AudioClip clip in clips)
+        {
+            SongListItem con = Instantiate(SongListPrefab, content).GetComponent<SongListItem>();
+
+            con.UpdateSong(clip.name);
+            songsList.Add(con);
+        }
+    }
+
+    
+
     void UpdatePlaying()
     {
         int ind = MusicPlaylist.Instance.currentSongIndex;
@@ -102,16 +123,7 @@ public class Phone : MonoBehaviour
 
     void PlaySelected()
     {
-        foreach (var song in songsList)
-        {
-            song.UpdatePlaying(false);
-        }
-
-        songsList[currentSelectedSong].UpdatePlaying(true);
-
         SoundManager.Instance.SwapBGM(MusicPlaylist.Instance.GetSongAtIndex(currentSelectedSong));
-
-        OnMusicChanged?.Invoke();
     }
 
     void PhoneFlip()
