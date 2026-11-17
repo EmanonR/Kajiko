@@ -16834,6 +16834,10 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[7]'
       value: 
       objectReference: {fileID: 211100667}
+    - target: {fileID: 3636316198022054339, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 195
+      objectReference: {fileID: 0}
     - target: {fileID: 3721813610369137144, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -16898,10 +16902,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5771057025499701982, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: m_Distance
+      value: 108.90822
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785294774097789829, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: baseEXP
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6785294774097789829, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
       propertyPath: levelSlider
       value: 
       objectReference: {fileID: 1520758633}
+    - target: {fileID: 6785294774097789829, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: targetIncrease
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336721302538406936, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 669.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336721302538406936, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 132.27838
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336721302538406936, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 644.59125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336721302538406936, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 25.350891
+      objectReference: {fileID: 0}
     - target: {fileID: 7670260774043523998, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

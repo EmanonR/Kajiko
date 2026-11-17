@@ -20,6 +20,7 @@ public abstract class Skill : ScriptableObject
     {
         myLevel = 0;
         has = false;
+        done = false;
         description = "Aquire the skill";
     }
 }

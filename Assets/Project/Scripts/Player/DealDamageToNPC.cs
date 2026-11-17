@@ -16,7 +16,7 @@ public class DealDamageToNPC : MonoBehaviour
             npc.TakeDamage(damage);
             hits++;
 
-            if (hits >= 0 && hits >= hitCap)
+            if (hitCap > 0 && hits >= hitCap)
                 Destroy(gameObject);
         }
     }

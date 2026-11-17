@@ -8,7 +8,6 @@ public class RingOfFireScript : MonoBehaviour
 
     float angle;
     float rotationSpeed;
-    float collisionSize;
     float emberSpawnTime = 4f;
     float distance;
     float timer;
@@ -69,7 +68,6 @@ public class RingOfFireScript : MonoBehaviour
             ember.transform.localPosition = offset;
             ember.GetComponent<DealDamageToNPC>().damage = (int)currentDamage;
             ember.GetComponent<DealDamageToNPC>().hitCap = hitLimit;
-            ember.GetComponent<SphereCollider>().radius = collisionSize;
         }
     }
 }

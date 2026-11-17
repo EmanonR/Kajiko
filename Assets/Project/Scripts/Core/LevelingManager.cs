@@ -17,6 +17,7 @@ public class LevelingManager : MonoBehaviour
     private void Start()
     {
         ScoreManager.OnScoreChanged += UpdateScore;
+        UpdateScore();
     }
 
     private void OnDestroy()
@@ -36,8 +37,8 @@ public class LevelingManager : MonoBehaviour
         int amount = (int)ScoreManager.GetScore() - remove;
 
         targetEXP = DetermineEXPPerLevel(currentLevel);
-        SetEXP(amount);
         levelSlider.value = (float)amount / (float)targetEXP;
+        SetEXP(amount);
     }
 
     int DetermineEXPPerLevel(int level)

@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ring of fire", menuName = "Skill/RingOfFire")]
@@ -20,9 +19,7 @@ public class RingOfFire : Skill
 
     public override void ResetSkill()
     {
-        myLevel = 0;
-        has = false;
-        done = false;
+        base.ResetSkill();
         description = upgrades[0].upgradeDescription;
     }
 
@@ -30,12 +27,12 @@ public class RingOfFire : Skill
     {
         OnChanged?.Invoke(upgrades[myLevel].emberCount, upgrades[myLevel].hitCount, upgrades[myLevel].distance, upgrades[myLevel].speed, upgrades[myLevel].damageMultiplier);
 
-        if (myLevel + 1 < upgrades.Count())
+        if (myLevel + 1 < upgrades.Length)
             description = upgrades[myLevel + 1].upgradeDescription;
 
         base.Aquire();
 
-        if (myLevel >= upgrades.Count()) done = true;
+        if (myLevel >= upgrades.Length) done = true;
     }
 
     public class ROFUpgrade
