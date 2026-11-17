@@ -20,8 +20,8 @@ public class CardManager : MonoBehaviour
     public void CardChosen(int i)
     {
         //Do the upgrade
-        DisableCards();
         cards[i].skill.Aquire();
+        DisableCards();
         GameManager.Instance.InvokeResume();
     }
 
