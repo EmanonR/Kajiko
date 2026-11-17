@@ -4,11 +4,21 @@ public class HealthPickup : Interactable
 {
     public float pickupProg = 0;
     int healAmount = 10;
+    float despawnTime = 10f;
 
+
+    float timer;
 
     private void Update()
     {
         if (!interactedWith) return;
+
+        timer += Time.deltaTime;
+
+        if (timer >= despawnTime)
+        {
+            Destroy(this);
+        }
 
         float dist = Vector3.Distance(transform.position, player.position);
 
