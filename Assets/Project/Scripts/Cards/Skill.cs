@@ -14,4 +14,11 @@ public abstract class Skill : ScriptableObject
         myLevel++;
         has = true;
     }
+
+    public virtual void ResetSkill()
+    {
+        myLevel = 0;
+        has = false;
+        description = "Aquire the skill";
+    }
 }

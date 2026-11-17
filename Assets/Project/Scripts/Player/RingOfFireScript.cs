@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class RingOfFireScript : MonoBehaviour
 {
@@ -10,11 +9,11 @@ public class RingOfFireScript : MonoBehaviour
     float angle;
     float rotationSpeed;
     float collisionSize;
-    int hitLimit;
     float emberSpawnTime = 4f;
-    int count;
-        float distance;
+    float distance;
     float timer;
+    int hitLimit;
+    int count;
 
     private void Awake()
     {
@@ -46,6 +45,8 @@ public class RingOfFireScript : MonoBehaviour
         this.collisionSize = collisionSize;
         this.distance = distance;
         this.count = count;
+        this.hitLimit = hitLimit;
+        timer = 0;
     }
 
     public void SpawnEmbers(int amount, float distance)

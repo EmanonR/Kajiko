@@ -16,14 +16,15 @@ public class SkillManager : MonoBehaviour
         }
 
         Instance = this;
+
+        ClearALLSkills();
     }
 
     public void ClearALLSkills()
     {
         foreach (var skill in skills)
         {
-            skill.myLevel = 0;
-            skill.has = false;
+            skill.ResetSkill();
         }
     }
 
@@ -52,12 +53,12 @@ public class SkillManager : MonoBehaviour
     {
         List<int> compareList = new();
 
-        for (int i = low; i <= high; i++)
+        for (int i = low; i < high; i++)
         {
             if (!ExcludeList.Contains(i))
                 compareList.Add(i);
         }
 
-        return compareList[Random.Range(0, high - low - ExcludeList.Count)];
+        return compareList[Random.Range(0, compareList.Count)];
     }
 }

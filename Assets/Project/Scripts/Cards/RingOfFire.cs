@@ -6,9 +6,10 @@ public class RingOfFire : Skill
 {
     public static event Action<int, int, float, float, float> OnChanged;
 
-    private void OnEnable()
+    public override void ResetSkill()
     {
         myLevel = 0;
+        has = false;
         description = "Spawns embers that circle around you";
     }
 
