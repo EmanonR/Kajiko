@@ -42,6 +42,9 @@ public class SkillManager : MonoBehaviour
                 break;
 
             int r = GetRanIntExcluded(numsChosen, 0, skills.Count);
+
+            if (skills[r].done) break;
+
             list.Add(skills[r]);
             numsChosen.Add(r);
         }

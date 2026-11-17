@@ -7,6 +7,7 @@ public abstract class Skill : ScriptableObject
     public string description = "Aquire the skill";
 
     public bool has;
+    public bool done;
     public int myLevel;
 
     public virtual void Aquire()

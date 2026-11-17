@@ -15,14 +15,16 @@ public class RingOfFireScript : MonoBehaviour
     int hitLimit;
     int count;
 
+    float currentDamage;
+
     private void Awake()
     {
-        RingOfFire.OnChanged += SetEmberCount;
+        RingOfFire.OnChanged += SetUpEmber;
     }
 
     private void OnDestroy()
     {
-        RingOfFire.OnChanged -= SetEmberCount;
+        RingOfFire.OnChanged -= SetUpEmber;
     }
 
     private void Update()
@@ -39,14 +41,14 @@ public class RingOfFireScript : MonoBehaviour
         }
     }
 
-    public void SetEmberCount(int count, int hitLimit, float distance, float speed, float collisionSize)
+    public void SetUpEmber(int count, int hitLimit, float distance, float speed, float damageMultiplier)
     {
         rotationSpeed = speed;
-        this.collisionSize = collisionSize;
         this.distance = distance;
         this.count = count;
         this.hitLimit = hitLimit;
-        timer = 0;
+        timer = emberSpawnTime;
+        currentDamage = damageAmount * damageMultiplier;
     }
 
     public void SpawnEmbers(int amount, float distance)
@@ -65,7 +67,7 @@ public class RingOfFireScript : MonoBehaviour
 
             GameObject ember = Instantiate(emberPrefab, transform);
             ember.transform.localPosition = offset;
-            ember.GetComponent<DealDamageToNPC>().damage = damageAmount;
+            ember.GetComponent<DealDamageToNPC>().damage = (int)currentDamage;
             ember.GetComponent<DealDamageToNPC>().hitCap = hitLimit;
             ember.GetComponent<SphereCollider>().radius = collisionSize;
         }
