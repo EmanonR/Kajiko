@@ -10,6 +10,7 @@ public class MusicPlaylist : MonoBehaviour
 
     public static MusicPlaylist Instance;
 
+    public static event Action<int> OnSongChanged;
 
     private void Awake()
     {
@@ -49,6 +50,7 @@ public class MusicPlaylist : MonoBehaviour
         if (currentSongIndex < 0)
             currentSongIndex = PlayList.Count - 1;
 
+        OnSongChanged?.Invoke(currentSongIndex);
         return PlayList[currentSongIndex];
     }
 }

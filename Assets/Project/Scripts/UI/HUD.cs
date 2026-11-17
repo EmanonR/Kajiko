@@ -11,7 +11,6 @@ public class HUD : MonoBehaviour
     public GameObject UIPanel;
     public GameObject GameOverPanel;
     public TMP_Text scoreText;
-    public TMP_Text FuelGaugeText;
     public Image FuelGauge;
     public TMP_Text hpText;
 
@@ -69,7 +68,6 @@ public class HUD : MonoBehaviour
 
     public void UpdateAmmoUI(float current, float max)
     {
-        FuelGaugeText.text = current.ToString("f0") + "/" + max.ToString("f0");
         FuelGauge.fillAmount = current / max;
     }
 

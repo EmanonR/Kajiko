@@ -35,6 +35,8 @@ public class FlameThrower : MonoBehaviour
     PlayerAnimationController animController;
     FlameThrowerFuel fuel;
 
+    RaycastHit[] hits = new RaycastHit[16];
+
     private void Awake()
     {
         shooting = false;
@@ -170,11 +172,11 @@ public class FlameThrower : MonoBehaviour
         Vector3 dir = GetAimDirection();
         Vector3 origin = transform.position - dir * raySize;
 
-        RaycastHit[] hits = Physics.SphereCastAll(origin, raySize, dir, rayDistance, rayMask);
+        int hitCount = Physics.SphereCastNonAlloc(origin, raySize, dir, hits, rayDistance, rayMask);
 
-        foreach (RaycastHit hit in hits)
+        for (int i = 0; i < hitCount; i++)
         {
-            if (hit.collider.TryGetComponent(out NPC enemy))
+            if (hits[i].collider.TryGetComponent(out NPC enemy))
             {
                 enemy.TakeDamage(damagePerSecond * Time.deltaTime);
             }
