@@ -16787,10 +16787,6 @@ PrefabInstance:
       value: Core
       objectReference: {fileID: 0}
     - target: {fileID: 3410140912564010018, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
-      propertyPath: spawnPoints.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3410140912564010018, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1497348499}
@@ -16973,19 +16969,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[0].x
-      value: 673.95996
+      value: 959.48
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[0].y
-      value: 133.1915
+      value: 189.3145
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 648.58496
+      value: 923.355
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[1].y
-      value: 25.601501
+      value: 36.1445
       objectReference: {fileID: 0}
     - target: {fileID: 7581830400745893098, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_AnchorMax.y
