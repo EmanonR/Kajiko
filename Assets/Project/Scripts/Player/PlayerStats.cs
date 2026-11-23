@@ -1,7 +1,15 @@
-using UnityEngine;
-
-public class PlayerStats : MonoBehaviour
+public static class PlayerStats
 {
-    public static float Luck = 1;
-    public static float runSpeed = 12;
+    public static float Luck;
+    public static float moveSpeedMultiplier;
+    public static float pickUpRange;
+    public static float damageMultiplier;
+
+    public static void ResetStats()
+    {
+        Luck = 1;
+        moveSpeedMultiplier = 1;
+        pickUpRange = 10;
+        damageMultiplier = 1;
+    }
 }

@@ -11,6 +11,8 @@ public class Entity : MonoBehaviour
     protected bool isDead;
 
     public event Action<float, float> OnHealthChanged;
+    public event Action<float> OnHeal;
+    public event Action<float> OnDamaged;
     public event Action OnDeath;
 
     protected virtual void Awake()
@@ -37,12 +39,14 @@ public class Entity : MonoBehaviour
             OnDeath?.Invoke();
             Death();
         }
+        OnDamaged?.Invoke(incoming);
     }
 
     public void Heal(float incoming)
     {
         currentHP = Mathf.Clamp(currentHP + incoming, 0, maxHP);
         OnHealthChanged?.Invoke(currentHP, maxHP);
+        OnHeal?.Invoke(incoming);
     }
 
     public virtual void Death()

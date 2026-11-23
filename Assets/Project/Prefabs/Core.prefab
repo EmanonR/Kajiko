@@ -6398,7 +6398,6 @@ GameObject:
   - component: {fileID: 8331499670325086795}
   - component: {fileID: 7847202304194327725}
   - component: {fileID: 6215188183082995880}
-  - component: {fileID: 4757374455537620589}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -6478,6 +6477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   characterController: {fileID: 4159689444638972313}
   walkSpeed: 8
+  runSpeed: 12
   jumpPower: 15
   jumpTime: 1
   turnSmoothTime: 0.02
@@ -6541,18 +6541,6 @@ MonoBehaviour:
   smoothing: 50
   weaponBone: {fileID: 3675750665961803796}
   emitter: {fileID: 6717826841613100337}
---- !u!114 &4757374455537620589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4275208567760133168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3850c631bf32e9945a602b192ba33bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &4289145423876337425
 GameObject:
   m_ObjectHideFlags: 0
@@ -26302,7 +26290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6006894619183535530, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Distance
-      value: 109.86115
+      value: 111.08638
       objectReference: {fileID: 0}
     - target: {fileID: 7311776633334672340, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_IsActive
@@ -26310,19 +26298,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[0].x
-      value: 669.81
+      value: 677.28
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[0].y
-      value: 132.27838
+      value: 133.722
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 644.59125
+      value: 651.78
       objectReference: {fileID: 0}
     - target: {fileID: 7393620012362808172, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_Positions.Array.data[1].y
-      value: 25.350891
+      value: 25.602005
       objectReference: {fileID: 0}
     - target: {fileID: 7581830400745893098, guid: d4c16348bbe51104a83fe212730d2b56, type: 3}
       propertyPath: m_AnchorMax.y
