@@ -4,7 +4,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController characterController;
 
-    public float walkSpeed = 8;
     public float jumpPower = 5, jumpTime = 1f;
     public float turnSmoothTime = .1f;
 
@@ -38,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
 
-        currentSpeed = KeyBinds.Instance.sprintInput.IsPressed() ? PlayerStats.moveSpeedStat.GetCalculated() : walkSpeed;
+        currentSpeed = KeyBinds.Instance.sprintInput.IsPressed() ? PlayerStats.moveSpeedStat.GetCalculated() : (PlayerStats.moveSpeedStat.GetCalculated() / 4) * 3;
 
         Vector3 moveVec = GetMovementVector(currentSpeed);
 

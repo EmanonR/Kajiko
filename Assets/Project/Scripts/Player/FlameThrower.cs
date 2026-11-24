@@ -136,6 +136,7 @@ public class FlameThrower : MonoBehaviour
         reloading = true;
         StopFlame();
         animController.PlayAnimation("Reload");
+        animController.animator.SetFloat("ReloadSpeed", PlayerStats.reloadSpeed.GetCalculated());
 
         yield return null;
         yield return new WaitForSeconds(animController.GetClipLength(1));
@@ -178,7 +179,7 @@ public class FlameThrower : MonoBehaviour
         {
             if (hits[i].collider.TryGetComponent(out NPC enemy))
             {
-                enemy.TakeDamage(damagePerSecond * Time.deltaTime);
+                enemy.TakeDamage(damagePerSecond * PlayerStats.fireDamage.GetCalculated() * Time.deltaTime);
             }
         }
 

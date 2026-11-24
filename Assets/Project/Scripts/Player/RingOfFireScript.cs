@@ -47,7 +47,7 @@ public class RingOfFireScript : MonoBehaviour
         this.count = count;
         this.hitLimit = hitLimit;
         timer = emberSpawnTime;
-        currentDamage = damageAmount * damageMultiplier;
+        currentDamage = damageAmount * damageMultiplier * PlayerStats.fireDamage.GetCalculated();
     }
 
     public void SpawnEmbers(int amount, float distance)

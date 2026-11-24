@@ -16,9 +16,9 @@ public class NPC : Entity
     {
         if (isDead) return;
 
-        ScoreManager.AddScore(incoming / 2);
+        ScoreManager.AddScore((incoming / 2) * PlayerStats.expBonus.GetCalculated());
 
-        base.TakeDamage(incoming);
+        base.TakeDamage(incoming * PlayerStats.expBonus.GetCalculated());
     }
 
     public override void Death()
