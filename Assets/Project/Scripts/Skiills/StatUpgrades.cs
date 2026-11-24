@@ -28,12 +28,12 @@ public class UpgradeMovement : Skill
     {
         base.ResetSkill();
         PlayerStats.moveSpeedStat.ResetValues();
-        description = "Movement +05%";
+        description = "Movement +10%";
     }
 
     public override void Aquire()
     {
-        PlayerStats.moveSpeedStat.multiplierValue += .05f;
+        PlayerStats.moveSpeedStat.multiplierValue += .1f;
 
         base.Aquire();
     }
