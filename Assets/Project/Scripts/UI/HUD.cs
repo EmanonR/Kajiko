@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
     public GameObject UIPanel;
     public GameObject GameOverPanel;
     public TMP_Text scoreText;
+    public TMP_Text highscoreText;
     public Image FuelGauge;
     public TMP_Text hpText;
 
@@ -73,7 +74,8 @@ public class HUD : MonoBehaviour
 
     void UpdateScore()
     {
-        scoreText.text = ScoreManager.GetScore().ToString("f0");
+        scoreText.text = ScoreManager.score.ToString("f0");
+        highscoreText.text = ScoreManager.highScore.ToString("f0");
     }
 
     public void PauseMenu()

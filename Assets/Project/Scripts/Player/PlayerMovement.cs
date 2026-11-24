@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameManager.GameState.Playing) return;
 
-        currentSpeed = KeyBinds.Instance.sprintInput.IsPressed() ? PlayerStats.runSpeed : walkSpeed;
+        currentSpeed = KeyBinds.Instance.sprintInput.IsPressed() ? PlayerStats.moveSpeedStat.GetCalculated() : walkSpeed;
 
         Vector3 moveVec = GetMovementVector(currentSpeed);
 
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (moving)
         {
-            if (currentSpeed == PlayerStats.runSpeed)
+            if (currentSpeed == PlayerStats.moveSpeedStat.GetCalculated())
                 movementState = MovementState.Running;
             else
                 movementState = MovementState.Walking;

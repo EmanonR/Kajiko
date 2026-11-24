@@ -3,6 +3,7 @@ using System;
 public static class ScoreManager
 {
     public static float score = 0;
+    public static float highScore = 0;
 
     public static event Action OnScoreChanged;
 
@@ -16,11 +17,6 @@ public static class ScoreManager
     {
         score -= i;
         OnScoreChanged?.Invoke();
-    }
-
-    public static float GetScore()
-    {
-        return score;
     }
 
     public static void ResetScore()

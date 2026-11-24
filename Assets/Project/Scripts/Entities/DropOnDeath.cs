@@ -24,7 +24,7 @@ public class DropOnDeath : MonoBehaviour
 
     public void DropDeath()
     {
-        if (Random.Range(0, 100) < dropChance * PlayerStats.Luck)
+        if (Random.Range(0, 100) < dropChance * PlayerStats.luckStat.GetCalculated())
             Instantiate(dropPrefab, transform.position, Quaternion.identity);
     }
 }
