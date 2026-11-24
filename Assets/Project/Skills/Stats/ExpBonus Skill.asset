@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: ExpBonus Skill
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeExpBonus
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: a9dce027ccc6eb8408212d4ea3617c5c, type: 3}
   displayName: 
   has: 0
   done: 0
   myLevel: 0
-  description: Aquire the skill
+  description: Exp bonus +10%

@@ -66,11 +66,11 @@ public class PlayerAnimationController : MonoBehaviour
                 animator.SetFloat("MoveZ", moveInp.y);
 
                 PlayAnimation("WalkBlend");
-                animator.SetFloat("PlayerMovement", PlayerStats.moveSpeedStat.GetCalculated());
+                animator.SetFloat("PlayerMovement", PlayerStats.moveSpeedStat.multiplierValue);
                 break;
             case PlayerMovement.MovementState.Running:
                 PlayAnimation("Run");
-                animator.SetFloat("PlayerMovement", PlayerStats.moveSpeedStat.GetCalculated());
+                animator.SetFloat("PlayerMovement", PlayerStats.moveSpeedStat.multiplierValue);
                 break;
             default:
                 PlayAnimation("Idle");

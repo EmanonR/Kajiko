@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Reload Skill
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeReload
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: f2ee431efe10eee43a5a2f98ede8abfc, type: 3}
   displayName: 
   has: 0
   done: 0
   myLevel: 0
-  description: Aquire the skill
+  description: Reload speed +10%

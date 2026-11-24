@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NPC : Entity
@@ -7,9 +8,17 @@ public class NPC : Entity
     public float attackRange = 5;
     public float interactRange = 1;
 
+    public static List<NPC> NpcsInScene = new();
+
     private void Start()
     {
         player = GameManager.Instance.player.transform;
+        NpcsInScene.Add(this);
+    }
+
+    public virtual void OnDestroy()
+    {
+        NpcsInScene.Remove(this);
     }
 
     public override void TakeDamage(float incoming)

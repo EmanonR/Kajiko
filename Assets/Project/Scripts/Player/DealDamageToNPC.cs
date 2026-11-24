@@ -13,7 +13,7 @@ public class DealDamageToNPC : MonoBehaviour
 
         if (npc != null)
         {
-            npc.TakeDamage(damage);
+            npc.TakeDamage(damage * PlayerStats.fireDamage.GetCalculated());
             hits++;
 
             if (hitCap > 0 && hits >= hitCap)

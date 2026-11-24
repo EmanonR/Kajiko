@@ -7,8 +7,14 @@ public class RagnarokEmber : MonoBehaviour
 
     private void Update()
     {
-        Vector3 dir = transform.position - target.position;
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        transform.Translate(moveSpeed * Time.deltaTime * dir);
+        Vector3 dir = (target.position + new Vector3(0,1,0)) - transform.position;
+
+        transform.Translate(moveSpeed * Time.deltaTime * dir.normalized);
     }
 }

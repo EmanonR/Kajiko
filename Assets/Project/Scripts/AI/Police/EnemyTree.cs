@@ -24,8 +24,9 @@ public class EnemyTree : NPC
         enemiesInScene.Add(this);
     }
 
-    private void OnDestroy()
+    public override void OnDestroy()
     {
+        base.OnDestroy();
         enemiesInScene.Remove(this);
     }
 

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10252db4a0a3e742881cf863ac13086, type: 3}
   m_Name: Ragnarok
   m_EditorClassIdentifier: Assembly-CSharp::RagnarokSkill
-  image: {fileID: 0}
-  displayName: 
-  has: 0
-  done: 0
-  myLevel: 0
-  description: Aquire the skill
+  image: {fileID: 21300000, guid: ab9b20867c88ee0418980fd14212f452, type: 3}
+  displayName: Ragnarok
+  has: 1
+  done: 1
+  myLevel: 1
+  description: Shoots rocks of fire at nearby enemies
