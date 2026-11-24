@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Playing;
 
         ScoreManager.ResetScore();
+        PlayerStats.ResetStats();
 
         player.OnDeath += OnDeath;
         ScoreManager.Initialize();
