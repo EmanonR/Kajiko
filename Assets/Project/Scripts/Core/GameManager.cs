@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         ScoreManager.ResetScore();
 
         player.OnDeath += OnDeath;
+        ScoreManager.Initialize();
     }
     private void OnDestroy()
     {

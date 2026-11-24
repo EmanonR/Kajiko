@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public static class ScoreManager
 {
@@ -7,9 +8,22 @@ public static class ScoreManager
 
     public static event Action OnScoreChanged;
 
+    public static void Initialize()
+    {
+        highScore = PlayerPrefs.GetFloat("HighScore", 0);
+        score = 0;
+    }
+
     public static void AddScore(float i)
     {
         score += i;
+
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetFloat("HighScore", highScore);
+        }
+
         OnScoreChanged?.Invoke();
     }
 

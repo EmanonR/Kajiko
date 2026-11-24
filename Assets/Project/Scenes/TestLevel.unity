@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 193954001}
   - component: {fileID: 193954000}
   m_Layer: 5
-  m_Name: HighChore
+  m_Name: HighScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16971,6 +16971,10 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[7]'
       value: 
       objectReference: {fileID: 211100667}
+    - target: {fileID: 3417899765297284516, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
+      propertyPath: highscoreText
+      value: 
+      objectReference: {fileID: 193954000}
     - target: {fileID: 3636316198022054339, guid: 88f6f79a7c21cc24fb1fed282938c6ee, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 195
