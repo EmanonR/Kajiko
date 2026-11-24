@@ -112,7 +112,8 @@ public class PlayerAnimationController : MonoBehaviour
     public float GetClipLength(int animationLayer = 0)
     {
         var clips = animator.GetCurrentAnimatorClipInfo(animationLayer);
-        return clips.Length > 0 ? clips[0].clip.length : 0f; 
+        var stateInfo = animator.GetCurrentAnimatorStateInfo(animationLayer);
+        return clips.Length > 0 ? (clips[0].clip.length / animator.speed) / stateInfo.speed : 0f; 
     }
 
     void onShoot(bool i) { shooting = i; }
