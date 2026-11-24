@@ -4,11 +4,11 @@ using UnityEngine;
 public class UpgradeLuck : Skill
 {
     //public static event Action<float> OnChanged;
-
     public override void ResetSkill()
     {
         base.ResetSkill();
         PlayerStats.luckStat.ResetValues();
+        description = "Luck +20%";
     }
 
     public override void Aquire()
@@ -16,7 +16,6 @@ public class UpgradeLuck : Skill
         //OnChanged?.Invoke(PlayerStats.luckStat.GetCalculated());
 
         PlayerStats.luckStat.multiplierValue += .2f;
-        description = "Luck +20%";
 
         base.Aquire();
     }
@@ -29,12 +28,12 @@ public class UpgradeMovement : Skill
     {
         base.ResetSkill();
         PlayerStats.moveSpeedStat.ResetValues();
+        description = "Movement +05%";
     }
 
     public override void Aquire()
     {
         PlayerStats.moveSpeedStat.multiplierValue += .05f;
-        description = "Movement +05%";
 
         base.Aquire();
     }
@@ -47,12 +46,12 @@ public class UpgradeFire : Skill
     {
         base.ResetSkill();
         PlayerStats.fireDamage.ResetValues();
+        description = "Fire damage +15%";
     }
 
     public override void Aquire()
     {
         PlayerStats.fireDamage.multiplierValue += .15f;
-        description = "Fire damage +15%";
 
         base.Aquire();
     }
@@ -65,12 +64,12 @@ public class UpgradeReload : Skill
     {
         base.ResetSkill();
         PlayerStats.reloadSpeed.ResetValues();
+        description = "Reload speed +10%";
     }
 
     public override void Aquire()
     {
         PlayerStats.reloadSpeed.multiplierValue += .1f;
-        description = "Reload speed +10%";
 
         base.Aquire();
     }
@@ -83,12 +82,12 @@ public class UpgradeExpBonus : Skill
     {
         base.ResetSkill();
         PlayerStats.expBonus.ResetValues();
+        description = "Exp bonus +10%";
     }
 
     public override void Aquire()
     {
         PlayerStats.expBonus.multiplierValue += .1f;
-        description = "Exp bonus +10%";
 
         base.Aquire();
     }
@@ -101,12 +100,12 @@ public class UpgradePickup : Skill
     {
         base.ResetSkill();
         PlayerStats.pickupRange.ResetValues();
+        description = "Pickup range +10%";
     }
 
     public override void Aquire()
     {
         PlayerStats.pickupRange.multiplierValue += .1f;
-        description = "Pickup range +10%";
 
         base.Aquire();
     }
