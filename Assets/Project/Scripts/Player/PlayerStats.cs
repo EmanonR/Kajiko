@@ -8,6 +8,17 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStat reloadSpeed = new() { initialValue = 1, multiplierValue = 1 };
     public static PlayerStat expBonus = new() { initialValue = 1, multiplierValue = 1 };
     public static PlayerStat pickupRange = new() { initialValue = 1, multiplierValue = 1 };
+
+
+    public static void ResetStats()
+    {
+        luckStat.ResetValues();
+        moveSpeedStat.ResetValues();
+        fireDamage.ResetValues();
+        reloadSpeed.ResetValues();
+        expBonus.ResetValues();
+        pickupRange.ResetValues();
+    }
 }
 
 public class PlayerStat
