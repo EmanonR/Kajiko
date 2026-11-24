@@ -139,7 +139,7 @@ public class FlameThrower : MonoBehaviour
         animController.animator.SetFloat("ReloadSpeed", PlayerStats.reloadSpeed.GetCalculated());
 
         yield return null;
-        yield return new WaitForSeconds(animController.GetClipLength(1));
+        yield return new WaitForSeconds(animController.GetClipLength(1) / PlayerStats.reloadSpeed.GetCalculated());
 
         fuel.Refill();
 
