@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RingOfFireScript : MonoBehaviour
+public class RingOfFireController : MonoBehaviour
 {
     public int damageAmount = 5; 
 
@@ -18,12 +18,12 @@ public class RingOfFireScript : MonoBehaviour
 
     private void Awake()
     {
-        RingOfFire.OnChanged += SetUpEmber;
+        RingOfFireSkill.OnChanged += SetUpEmber;
     }
 
     private void OnDestroy()
     {
-        RingOfFire.OnChanged -= SetUpEmber;
+        RingOfFireSkill.OnChanged -= SetUpEmber;
     }
 
     private void Update()

@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Ring of fire", menuName = "Skill/RingOfFire")]
-public class RingOfFire : Skill
+[CreateAssetMenu(fileName = "Ring of fire", menuName = "Skill/Weapons/RingOfFire")]
+public class RingOfFireSkill : Skill
 {
     public static event Action<int, int, float, float, float> OnChanged;
 
