@@ -6,6 +6,6 @@ public class RotateAxis : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(xSpeed, ySpeed, zSpeed);
+        transform.Rotate(xSpeed * Time.deltaTime, ySpeed * Time.deltaTime, zSpeed * Time.deltaTime);
     }
 }
