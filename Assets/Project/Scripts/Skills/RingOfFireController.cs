@@ -47,7 +47,7 @@ public class RingOfFireController : MonoBehaviour
         this.count = count;
         this.hitLimit = hitLimit;
         timer = emberSpawnTime;
-        currentDamage = damageAmount * damageMultiplier * PlayerStats.fireDamage.GetCalculated();
+        currentDamage = damageAmount * damageMultiplier;
     }
 
     public void SpawnEmbers(int amount, float distance)

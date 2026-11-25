@@ -27,7 +27,7 @@ public class NPC : Entity
 
         ScoreManager.AddScore((incoming / 2) * PlayerStats.expBonus.GetCalculated());
 
-        base.TakeDamage(incoming * PlayerStats.expBonus.GetCalculated());
+        base.TakeDamage(incoming);
     }
 
     public override void Death()

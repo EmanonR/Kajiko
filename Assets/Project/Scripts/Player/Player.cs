@@ -8,7 +8,7 @@ public class Player : Entity
         {
             float dist = Vector3.Distance(interactable.transform.position, transform.position);
 
-            if (dist <= interactable.interactRange)
+            if (dist <= interactable.interactRange * PlayerStats.pickupRange.GetCalculated())
             {
                 interactable.Interact(this);
             }

@@ -40,7 +40,7 @@ public class RagnarokController : MonoBehaviour
         this.spawnTime = spawnTime;
         targetDistance = distance;
         emberSpeed = flySpeed;
-        currentDamage = damageAmount * damageMultiplier * PlayerStats.fireDamage.GetCalculated();
+        currentDamage = damageAmount * damageMultiplier;
     }
     private void LateUpdate()
     {
