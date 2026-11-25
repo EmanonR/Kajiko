@@ -32,9 +32,8 @@ public class NPC : Entity
 
     public override void Death()
     {
-        ScoreManager.AddScore(maxHP / 2);
-
         base.Death();
+        ScoreManager.AddScore(maxHP / 2);
     }
 
     private void OnDrawGizmosSelected()
